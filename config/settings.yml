@@ -1,0 +1,13 @@
+# config/application.yml
+defaults: &defaults
+  app: "TG Fatec"
+  host: "tgfatec.dev"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

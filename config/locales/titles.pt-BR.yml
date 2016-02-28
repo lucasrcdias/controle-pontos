@@ -1,0 +1,7 @@
+pt-BR:
+  titles:
+    user:
+      confirmation: 'Instruções de confirmação'
+      password: 'Redefinir senha'
+      unlock: 'Instruções de desbloqueio'
+      update: 'Meus dados'

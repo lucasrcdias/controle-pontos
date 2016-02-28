@@ -1,0 +1,23 @@
+pt-BR:
+  helpers:
+    actions: "Ações"
+    links:
+      show: "Visualizar"
+      new: "Novo"
+      edit: "Editar"
+      destroy: "Excluir"
+      cancel: "Cancelar"
+      confirm: "Essa operação não poderá ser desfeita. Deseja continuar?"
+    titles:
+      new: "Novo(a) %{model}"
+      edit: "Editar %{model}"
+    records:
+      create: "Registro criado com sucesso!"
+      update: "Registro atualizado com sucesso!"
+      delete: "Registro excluído com sucesso!"
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar
+      submit: Salvar
+      update: Atualizar
