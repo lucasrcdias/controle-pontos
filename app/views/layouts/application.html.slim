@@ -13,5 +13,11 @@ html lang=I18n.locale
     = csrf_meta_tags
 
   body
-    = yield
+    = render "dashboard/navbar"
+    
+    .container
+      main.dashboard
+        = yield
+    
+    = render "dashboard/footer"
     = javascript_include_tag "application"

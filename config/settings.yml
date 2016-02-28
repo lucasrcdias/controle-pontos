@@ -2,6 +2,7 @@
 defaults: &defaults
   app: "TG Fatec"
   host: "tgfatec.dev"
+  company_url: "http://www.tgfatec.com.br"
 
 development:
   <<: *defaults
