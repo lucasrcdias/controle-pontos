@@ -1,0 +1,23 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"
+
+    meta name="description" content=""
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title = content_for?(:title) ? yield(:title) : Settings.app
+
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+
+  body
+    = render "dashboard/navbar"
+    
+    .container
+      main.dashboard
+        = yield
+    
+    = render "dashboard/footer"
+    = javascript_include_tag "application"
