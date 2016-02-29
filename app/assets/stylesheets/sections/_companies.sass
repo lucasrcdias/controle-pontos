@@ -1,0 +1,39 @@
+@import 'globals/base'
+
+.company-form
+  label
+    font-weight: 500
+
+  .form-control
+    border: none
+    border-radius: 0
+    box-shadow: none
+    border-bottom: 1px solid #ccc
+
+    &:focus
+      box-shadow: none
+      border-color: $main-color
+
+  abbr[title]
+    border-bottom: none
+
+  .help-block
+    font-size: .8em
+
+  .btn-default
+    margin-top: 30px
+
+    color: #fff
+    width: 100%
+    padding: 15px
+    font-size: 1em
+    font-weight: 500
+    background: $main-color
+    transition: .3s all ease
+    border-color: $main-color-hover
+
+    &:hover
+      background: $main-color-hover
+
+    &:focus
+      color: #fff
