@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: "dashboard#index"
+  root to: "companies#new"
+
+  resources :companies, only: :create
 end

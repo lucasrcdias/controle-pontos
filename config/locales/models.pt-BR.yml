@@ -1,12 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      user: 'Usuário'
+      company: 'Empresa'
 
     attributes:
-      user:
-        name: 'Nome'
-        email: 'E-mail'
-        password: 'Senha'
-        password_confirmation: 'Confirmar senha'
-        current_password: 'Senha atual'
+      company:
+        fantasy_name: 'Nome fantasia'
+        social_reason: 'Razão Social'
+        cnpj: 'CNPJ'
+        code: 'Código'

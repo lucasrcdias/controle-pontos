@@ -1,0 +1,6 @@
+.box.centered-box.company-box
+  = simple_form_for company, html: { class: "company-form" } do |f|
+    = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados"
+    = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
+    = f.input :cnpj, as: :string, hint: "Digite somente números"
+    = f.button :submit, "CADASTRAR"
