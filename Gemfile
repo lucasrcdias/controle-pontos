@@ -26,6 +26,9 @@ gem 'devise',             '~> 3.5.2'
 # Form
 gem 'simple_form',        '~> 3.1.1'
 
+# Enumeration
+gem 'enumerate_it', '~> 1.2.8'
+
 # Controllers
 gem 'responders',         '~> 2.1.0'
 gem 'decent_exposure',    '~> 2.3.2'

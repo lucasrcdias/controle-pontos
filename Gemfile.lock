@@ -72,6 +72,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    enumerate_it (1.2.8)
+      activesupport (>= 3.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -228,6 +230,7 @@ DEPENDENCIES
   database_rewinder
   decent_exposure (~> 2.3.2)
   devise (~> 3.5.2)
+  enumerate_it (~> 1.2.8)
   factory_girl_rails (~> 4.5.0)
   ffaker (~> 2.1)
   font-awesome-rails (~> 4.4.0.0)
