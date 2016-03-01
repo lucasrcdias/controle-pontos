@@ -2,9 +2,11 @@ class Company < ActiveRecord::Base
   validates :social_reason, :fantasy_name, :cnpj, presence: true
   validates :cnpj, :code, uniqueness: true
 
-  before_create :generate_code
+  belongs_to :company_user
 
-  scope :with_code, ->(code) { (where(code: code)) }
+  scope :with_code, ->(code) { where(code: code) }
+
+  before_create :generate_code
 
   private
 
