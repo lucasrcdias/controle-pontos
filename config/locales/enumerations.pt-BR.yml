@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    company_user_role:
+      admin: "Administrador"
+      manager: "Gerente"
