@@ -1,0 +1,61 @@
+@import 'globals/base'
+
+form
+  .form-title
+    color: #333
+    font-weight: 500
+    font-size: 1.2em
+
+  .form-group,
+  .form-links
+    margin-bottom: 0
+
+    &:not(.hidden)
+      padding: 20px 30px 0 30px
+
+  .control-label
+    color: #333
+    font-size: .9em
+    font-weight: 500
+    text-transform: uppercase
+
+  .form-control
+    border: none
+    border-radius: 0
+    box-shadow: none
+    box-sizing: border-box
+    border-bottom: 1px solid #ccc
+
+    &:focus
+      box-shadow: none
+      border-color: $main-color
+
+  .help-block
+    font-size: .8em
+
+  .form-links a
+    color: #333
+    font-size: .9em
+    font-weight: 500
+    text-decoration: none
+
+  .form-actions
+    padding: 20px 30px
+
+  .btn-default
+    color: #fff
+    width: 100%
+    border: none
+    padding: 15px
+    font-size: 1em
+    font-weight: 500
+    background: $main-color
+    transition: .3s all ease
+    border: 1px solid $main-color
+
+    &:hover,
+    &:focus,
+    &:active:focus
+      color: #fff
+      background: $main-color-hover
+      border-color: $main-color-hover
