@@ -13,7 +13,10 @@ html lang=I18n.locale
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
 
-  body
-    = render "shared/flash_messages"
-    = yield
+  body.application
+    = render "shared/application/navbar"
+    
+    .centered-content
+      = yield
+
     = javascript_include_tag "application"
