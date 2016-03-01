@@ -1,6 +1,11 @@
-.box.centered-box.company-box
+= render "shared/flash_messages"
+
+.box.application-box
   = simple_form_for company, html: { class: "company-form" } do |f|
-    = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados"
-    = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
-    = f.input :cnpj, as: :string, hint: "Digite somente números"
-    = f.button :submit, "CADASTRAR"
+    
+    .form-inputs
+      = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados", autofocus: true
+      = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
+      = f.input :cnpj, as: :string, hint: "Digite somente números"
+  
+    .form-actions = f.button :submit, "CADASTRAR"
