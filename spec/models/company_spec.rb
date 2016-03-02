@@ -11,6 +11,6 @@ describe Company do
   end
 
   describe 'relationships' do
-    it { should have_one(:company_user).dependent(:destroy) }
+    it { should belong_to(:company_user) }
   end
 end
