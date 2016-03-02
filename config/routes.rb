@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'dashboard#index',                     as: :dashboard_index
   end
 
+  namespace :dashboard do
+    resources :responsibilities
+  end
+
   resources :companies, only: [:new, :create]
 end
