@@ -16,6 +16,14 @@ class Dashboard::ResponsibilitiesController < Dashboard::BaseController
     end
   end
 
+  def update
+    if responsibility.save
+      respond_with responsibility, location: dashboard_responsibilities_path
+    else
+      respond_with responsibility, location: edit_dashboard_responsibility_path
+    end
+  end
+
   protected
 
   def responsibility_params
