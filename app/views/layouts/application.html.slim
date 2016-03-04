@@ -7,11 +7,16 @@ html lang=I18n.locale
     meta name="description" content=""
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
+
     title = content_for?(:title) ? yield(:title) : Settings.app
 
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
 
-  body
-    = yield
+  body.application
+    = render "shared/application/navbar"
+    
+    .centered-content
+      = yield
+
     = javascript_include_tag "application"

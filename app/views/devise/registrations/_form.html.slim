@@ -1,0 +1,14 @@
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :role, as: :hidden, input_html: { value: Role::ADMIN }
+
+    = f.input :name, required: true, autofocus: true
+    = f.input :email, required: true
+    = f.input :password, required: true, hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length)
+    = f.input :password_confirmation, required: true
+    
+    .form-links = render "devise/shared/links"
+
+  .form-actions = f.button :submit, "Cadastrar"
