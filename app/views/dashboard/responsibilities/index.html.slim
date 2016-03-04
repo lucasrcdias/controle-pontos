@@ -15,5 +15,6 @@
         - responsibilities.each do |r|
           tr
             td = r.name
-            td
-              = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy')
+            td.text-right
+              = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_responsibility_path(r), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
