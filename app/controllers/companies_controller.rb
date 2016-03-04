@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   expose(:company, attributes: :company_params)
 
   def new
-    redirect_to dashboard_index_path and return if current_company_user.company.present?
+    redirect_to dashboard_root_path and return if current_company_user.company.present?
   end
 
   def create
