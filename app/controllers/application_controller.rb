@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.company.present?
-      dashboard_index_path
+      dashboard_root_path
     else
       new_company_path
     end

@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
   validates :cnpj, :code, uniqueness: true
 
   belongs_to :company_user
+  has_many :responsibilities, dependent: :destroy
 
   scope :with_code, ->(code) { where(code: code) }
 
