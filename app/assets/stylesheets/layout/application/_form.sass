@@ -24,8 +24,13 @@
 
 .control-label,
 .form-control
-  width: 50%
-  float: left
+  @media screen and (max-width: $screen-xs-max)
+    width: 100%
+    display: block
+
+  @media screen and (min-width: $screen-sm-min)
+    width: 50%
+    float: left
 
 .control-label
   text-align: left
@@ -74,3 +79,7 @@
 
   .btn
     float: right
+
+    @media screen and (max-width: $screen-xs-max)
+      width: 100%
+      margin-top: 15px
