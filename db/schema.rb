@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160302015151) do
     t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "role"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -52,15 +51,15 @@ ActiveRecord::Schema.define(version: 20160302015151) do
   add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true, using: :btree
   add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "responsibilities", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "responsibilities", ["company_id"], name: "index_responsibilities_on_company_id", using: :btree
+  add_index "roles", ["company_id"], name: "index_roles_on_company_id", using: :btree
 
   add_foreign_key "companies", "company_users"
-  add_foreign_key "responsibilities", "companies"
+  add_foreign_key "roles", "companies"
 end

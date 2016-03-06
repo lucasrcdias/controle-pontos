@@ -1,6 +1,6 @@
-class CreateResponsibilities < ActiveRecord::Migration
+class CreateRoles < ActiveRecord::Migration
   def change
-    create_table :responsibilities do |t|
+    create_table :roles do |t|
       t.string :name
       t.references :company, index: true, foreign_key: true
 

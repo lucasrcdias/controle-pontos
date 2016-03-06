@@ -7,6 +7,4 @@ class CompanyUser < ActiveRecord::Base
   validates :name, presence: true
 
   has_one :company, dependent: :destroy
-
-  has_enumeration_for :role, create_helpers: true, required: true
 end

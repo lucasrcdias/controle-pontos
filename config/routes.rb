@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root to: 'dashboard#index'
-    resources :responsibilities, except: :show, path: 'cargos'
+    resources :roles, except: :show, path: 'cargos'
   end
 
   resources :companies, only: [:new, :create]
