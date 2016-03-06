@@ -1,0 +1,23 @@
+@import 'globals/base'
+
+.btn
+  color: #333
+  border: none
+  background: #ccc
+  padding: 10px 20px
+  display: inline-block
+  transition: .3s all ease
+  font-weight: $button-weight
+  font-size: $button-text-size
+  border-radius: $default-border-radius
+
+.btn-default
+  color: #fff
+  background: $primary-color
+
+  &:hover,
+  &:focus
+    background: $secondary-color
+
+  &:focus
+    outline: none

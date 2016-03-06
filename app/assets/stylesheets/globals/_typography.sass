@@ -1,9 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500)
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700)
 
 body
-  font-size: 16px
-  font-family: 'Roboto', sans-serif
+  font-size: $body-font-size
+  font-family: 'Montserrat', sans-serif
 
-strong,
-b
-  font-weight: 500
+a
+  color: $primary-color
+  transition: .3s all ease
+
+  &:hover,
+  &:focus
+    color: $secondary-color
