@@ -1,4 +1,11 @@
 = render "shared/flash_messages"
 
-.box.application-box
+h1.page-title Crie sua conta
+p.page-description Gerencie horários de forma simplificada
+
+.form
   = render "form"
+
+span.page-description
+  ' Já possui uma conta?
+  = link_to 'Acesse', new_session_path(resource_name)

@@ -14,9 +14,7 @@ html lang=I18n.locale
     = csrf_meta_tags
 
   body.application
-    = render "shared/application/navbar"
-    
-    .centered-content
-      = yield
-
+    main
+      .container
+        = yield
     = javascript_include_tag "application"
