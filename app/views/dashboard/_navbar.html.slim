@@ -13,7 +13,7 @@ header
         ul.nav.navbar-nav.navbar-left
           li = link_to fa_icon("home",    text: "Home"),        [:dashboard, :root]
           li = link_to fa_icon("bars",    text: "Cargos"),      [:dashboard, :roles]
-          li = link_to fa_icon("clock-o", text: "Período"),     "#"
+          li = link_to fa_icon("clock-o", text: "Período"),     [:dashboard, :periods]
           li = link_to fa_icon("calendar", text: "Frequência"), "#"
           li = link_to fa_icon("child",   text: "Empregados"),  "#"
             
