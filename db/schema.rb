@@ -61,5 +61,4 @@ ActiveRecord::Schema.define(version: 20160302015151) do
   add_index "roles", ["company_id"], name: "index_roles_on_company_id", using: :btree
 
   add_foreign_key "companies", "company_users"
-  add_foreign_key "roles", "companies"
 end

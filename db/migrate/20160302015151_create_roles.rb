@@ -2,7 +2,7 @@ class CreateRoles < ActiveRecord::Migration
   def change
     create_table :roles do |t|
       t.string :name
-      t.references :company, index: true, foreign_key: true
+      t.belongs_to :company, index: true
 
       t.timestamps null: false
     end
