@@ -1,4 +1,4 @@
-class Responsibility < ActiveRecord::Base
+class Role < ActiveRecord::Base
   validates :name, presence: true
 
   belongs_to :company

@@ -3,7 +3,7 @@ pt-BR:
     models:
       company: 'Empresa'
       company_user: 'Usuário da empresa'
-      responsibility: 'Cargo'
+      role: 'Cargo'
 
     attributes:
       company:
@@ -18,5 +18,5 @@ pt-BR:
         password: 'Senha'
         current_password: 'Senha atual'
         password_confirmation: 'Confirmação de senha'
-      responsibility:
+      role:
         name: 'Nome'

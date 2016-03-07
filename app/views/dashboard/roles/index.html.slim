@@ -1,0 +1,28 @@
+.row
+  .col-sm-2
+    .box
+      .object-count
+        ' Total:
+        strong = roles.count
+
+  .col-sm-2.col-sm-offset-8
+    .box.clearfix
+      = link_to fa_icon('plus', text: "Novo cargo"), new_dashboard_role_path, class: "btn btn-success btn-block pull-right"
+  
+.box
+  - if roles.blank?
+    .alert.alert-info role="alert"
+      p Nenhum cargo cadastrado
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th Nome
+          th
+      tbody
+        - roles.each do |r|
+          tr
+            td = r.name
+            td.text-right.table-options
+              = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_role_path(r), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
