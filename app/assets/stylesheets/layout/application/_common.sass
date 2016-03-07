@@ -1,34 +1,37 @@
 @import 'globals/base'
 
 body
-  background-image: image-url('application/application-background.jpg')
-  background-repeat: no-repeat
-  background-size: cover
   height: 100vh
+  text-align: center
+  background: $background
+  font-size: $body-font-size
+  font-family: 'Montserrat', sans-serif
 
-  @media screen and (min-width: $screen-sm-min)
-    &:after
-      content: ""
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      position: absolute
-      background: rgba(0,0,0,0.4)
+main
+  margin: 30px 0
+
+  .container
+    max-width: 800px
 
 .flash-messages
   margin: 20px 0
 
-.centered-content
-  z-index: 3
-  width: 300px
+.alert
+  max-width: 600px
+  margin: 0 auto 15px auto
+  border-radius: $default-border-radius
 
-  @media screen and (max-width: $screen-xs-max)
-    margin: $app-nav-height auto 0 auto
+.page-title,
+.page-description
+  text-align: center
 
-  @media screen and (min-width: $screen-sm-min)
-    +centered-content(fixed)
+.page-title
+  margin: 1rem 0 .5rem 0
+  font-size: $page-title-size
+  font-weight: $page-title-weight
 
-.application-box
-  overflow: hidden
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2)
+.page-description
+  display: block
+  margin: 0 0 10px 0
+  font-size: $page-description-size
+  font-weight: $page-description-weight

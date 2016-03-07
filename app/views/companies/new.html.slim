@@ -1,11 +1,12 @@
 = render "shared/flash_messages"
 
-.box.application-box
+h1.page-title Cadastre sua empresa
+
+.form
   = simple_form_for company, html: { class: "company-form" } do |f|
     
-    .form-inputs
-      = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados", autofocus: true
-      = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
-      = f.input :cnpj, as: :string, hint: "Digite somente números"
+    = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados", autofocus: true
+    = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
+    = f.input :cnpj, as: :string, hint: "Digite somente números"
   
-    .form-actions = f.button :submit, "CADASTRAR"
+    .form-footer = f.button :submit, "Cadastrar"

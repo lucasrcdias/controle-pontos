@@ -1,11 +1,9 @@
-.box.application-box
+h1.page-title Reenviar instruções de confirmação
+.form
   = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
     = f.error_notification
     = f.full_error :confirmation_token
 
-    .form-inputs
-      = f.input :email, required: true, autofocus: true
+    = f.input :email, required: true, autofocus: true
 
-    .form-links = render "devise/shared/links"
-
-    .form-actions = f.button :submit, "Reenviar instruções"
+    .form-footer = f.button :submit, "Reenviar instruções"

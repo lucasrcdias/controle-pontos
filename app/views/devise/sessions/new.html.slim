@@ -1,12 +1,20 @@
 = render "shared/flash_messages"
 
-.box.application-box
+h1.page-title Acesse sua conta
+p.page-description
+  ' Não possui uma conta?
+  =' link_to "Registre-se", new_registration_path(resource_name)
+
+.form
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-inputs
-      = f.input :email, required: false, autofocus: true
-      = f.input :password, required: false
-      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    = f.input :email, required: false, autofocus: true
+    = f.input :password, required: false
+    = f.input :remember_me, as: :hidden, input_html: { value: true } if devise_mapping.rememberable?
 
-    .form-links = render "devise/shared/links"
+    .form-footer 
+      = link_to "Reenviar email de confirmação", new_confirmation_path(resource_name), class: "form-footer-text form-footer-link"
+      = f.button :submit, "Entrar"
 
-    .form-actions = f.button :submit, "Entrar"
+span.page-description
+  ' Esqueceu a senha?
+  = link_to 'Clique aqui', new_password_path(resource_name)

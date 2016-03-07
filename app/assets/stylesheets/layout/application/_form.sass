@@ -1,61 +1,85 @@
 @import 'globals/base'
 
-form
-  .form-title
-    color: #333
-    font-weight: 500
-    font-size: 1.2em
+.form
+  max-width: 600px
+  margin: 30px auto
+  background: $form-background
+  border: 1px solid $border-color
+  border-radius: $default-border-radius
 
-  .form-group,
-  .form-links
-    margin-bottom: 0
+.form-group:not(.hidden),
+.form-footer
+  padding: 30px
+  overflow: hidden
 
-    &:not(.hidden)
-      padding: 20px 30px 0 30px
+.form-group:not(.hidden)
+  border-bottom: $form-border-width solid $border-color
 
-  .control-label
-    color: #333
-    font-size: .9em
-    font-weight: 500
-    text-transform: uppercase
-
+.form-group.has-error
   .form-control
-    border: none
-    border-radius: 0
-    box-shadow: none
-    box-sizing: border-box
-    border-bottom: 1px solid #ccc
-
-    &:focus
-      box-shadow: none
-      border-color: $main-color
+    border-color: $error-color
 
   .help-block
-    font-size: .8em
+    color: $error-color
 
-  .form-links a
-    color: #333
-    font-size: .9em
-    font-weight: 500
-    text-decoration: none
-
-  .form-actions
-    padding: 20px 30px
-
-  .btn-default
-    color: #fff
+.control-label,
+.form-control
+  @media screen and (max-width: $screen-xs-max)
     width: 100%
-    border: none
-    padding: 15px
-    font-size: 1em
-    font-weight: 500
-    background: $main-color
-    transition: .3s all ease
-    border: 1px solid $main-color
+    display: block
 
-    &:hover,
-    &:focus,
-    &:active:focus
-      color: #fff
-      background: $main-color-hover
-      border-color: $main-color-hover
+  @media screen and (min-width: $screen-sm-min)
+    width: 50%
+    float: left
+
+.control-label
+  text-align: left
+  line-height: 50px
+  color: $form-label
+  font-size: $form-label-size
+  font-weight: $form-label-weight
+
+  abbr
+    display: none
+
+.form-control
+  padding: 0 10px
+  background: #fff
+  box-sizing: border-box
+  transition: .3s all ease
+  height: $form-control-height
+  font-size: $form-control-size
+  font-weight: $form-control-weight
+  border-radius: $default-border-radius
+  border: $form-control-border solid $border-color
+
+  &:hover,
+    border-color: darken($border-color, 10%)
+
+  &:focus
+    outline: none
+    border-color: $secondary-color
+
+.help-block
+  float: right
+  margin-top: 5px
+  color: $form-link
+
+.form-footer
+  background: $form-footer
+
+  .form-footer-text
+    float: left
+    max-width: 300px
+    font-size: $form-link-size
+    font-weight: $form-link-weight
+
+  .form-footer-link
+    line-height: 42px
+
+  .btn
+    float: right
+
+    @media screen and (max-width: $screen-xs-max)
+      width: 100%
+      margin-top: 15px
