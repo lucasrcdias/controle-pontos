@@ -12,6 +12,6 @@ describe Company do
 
   describe 'relationships' do
     it { should belong_to(:company_user) }
-    it { should have_many(:responsibilities) }
+    it { should have_many(:roles) }
   end
 end

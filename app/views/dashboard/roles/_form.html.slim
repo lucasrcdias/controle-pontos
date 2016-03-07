@@ -1,0 +1,6 @@
+.row
+  .col-sm-4.col-sm-offset-4
+    .box
+      = simple_form_for [:dashboard, role], html: { novalidate: true } do |f|
+        = f.input :name, placeholder: "Ex: Gerente Contábil", autofocus: true
+        = f.submit t("helpers.links.#{form_action}"), class: 'btn btn-primary btn-block'

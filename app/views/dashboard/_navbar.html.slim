@@ -11,16 +11,17 @@ header
 
       .collapse.navbar-collapse#main-navbar-wrapper
         ul.nav.navbar-nav.navbar-left
-          li = link_to fa_icon("home",    text: "Home"),       [:dashboard, :root]
-          li = link_to fa_icon("bars",    text: "Cargos"),     [:dashboard, :responsibilities]
-          li = link_to fa_icon("child",   text: "Empregados"), "#"
-          li = link_to fa_icon("clock-o", text: "Período"),    "#"
-          
+          li = link_to fa_icon("home",    text: "Home"),        [:dashboard, :root]
+          li = link_to fa_icon("bars",    text: "Cargos"),      [:dashboard, :roles]
+          li = link_to fa_icon("clock-o", text: "Período"),     "#"
+          li = link_to fa_icon("calendar", text: "Frequência"), "#"
+          li = link_to fa_icon("child",   text: "Empregados"),  "#"
+            
         ul.nav.navbar-nav.navbar-right
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
               =' current_user_greeting
               span.caret
             ul.dropdown-menu
-              li = link_to fa_icon("user", text: "Meu perfil"), "#"
+              li = link_to fa_icon("user", text: "Meu perfil"), edit_company_user_registration_path
               li = link_to fa_icon("sign-out", text: "Sair"),   destroy_company_user_session_path
