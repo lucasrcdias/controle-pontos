@@ -18,7 +18,7 @@ class Dashboard::RolesController < Dashboard::BaseController
 
   def update
     if role.save
-      respond_with role, location: dashboard_roles_path
+      respond_with role, location: [:dashboard, :roles]
     else
       respond_with role, location: edit_dashboard_role_path
     end
