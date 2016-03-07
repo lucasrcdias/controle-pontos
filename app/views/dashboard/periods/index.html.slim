@@ -1,0 +1,34 @@
+.row
+  .col-sm-2
+    .box
+      .object-count
+        ' Total:
+        strong = periods.count
+
+  .col-sm-2.col-sm-offset-8
+    .box.clearfix
+      = link_to fa_icon('plus', text: "Novo período"), new_dashboard_period_path, class: "btn btn-success btn-block pull-right"
+  
+.box
+  - if periods.blank?
+    .alert.alert-info role="alert"
+      p Nenhum período cadastrado
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th Início
+          th Fim
+          th Duração do intervalo
+          th Carga horária
+          th
+      tbody
+        - periods.each do |r|
+          tr
+            td = l r.start_at,  format: :short
+            td = l r.finish_at, format: :short
+            td = pluralize(r.interval_duration, 'hora')
+            td = pluralize(r.workload, 'hora')
+            td.text-right.table-options
+              = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_period_path(r), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
