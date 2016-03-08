@@ -12,8 +12,8 @@ class WeekDays < EnumerateIt::Base
   def self.week_days_from_array(days_list)
     week_days = []
 
-    days_list.each do |day|
-      week_days << WeekDays.t(day)
+    days_list.sort_by(&:to_i).each do |day|
+      week_days << WeekDays.t(day) unless day.nil?
     end
 
     week_days.to_sentence
