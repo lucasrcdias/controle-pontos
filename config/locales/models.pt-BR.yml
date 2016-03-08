@@ -4,6 +4,7 @@ pt-BR:
       company: 'Empresa'
       company_user: 'Usuário da empresa'
       role: 'Cargo'
+      period: 'Período'
 
     attributes:
       company:
@@ -20,3 +21,8 @@ pt-BR:
         password_confirmation: 'Confirmação de senha'
       role:
         name: 'Nome'
+      period:
+        start_at: 'Início'
+        finish_at: 'Término'
+        interval_start: 'Início do intervalo'
+        interval_finish: 'Fim do intervalo'
