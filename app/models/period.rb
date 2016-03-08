@@ -10,9 +10,9 @@ class Period < ActiveRecord::Base
     to_hour(interval_finish - interval_start)
   end
 
-  protected
+  private
 
   def to_hour(seconds)
-    seconds / 3600
+    seconds / 1.hour
   end
 end
