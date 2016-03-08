@@ -19,14 +19,18 @@
         tr
           th Início
           th Fim
+          th Início do intervalo
+          th Fim do intervalo
           th Duração do intervalo
           th Carga horária
           th
       tbody
         - periods.each do |r|
           tr
-            td = l r.start_at,  format: :short
-            td = l r.finish_at, format: :short
+            td = l r.start_at,        format: :short
+            td = l r.finish_at,       format: :short
+            td = l r.interval_start,  format: :short
+            td = l r.interval_finish, format: :short
             td = pluralize(r.interval_duration, 'hora')
             td = pluralize(r.workload, 'hora')
             td.text-right.table-options
