@@ -7,5 +7,4 @@ FactoryGirl.define do
     interval_start  Time.parse("12:00")
     interval_finish Time.parse("13:00")
   end
-
 end
