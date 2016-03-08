@@ -3,10 +3,16 @@ class Period < ActiveRecord::Base
   belongs_to :company
 
   def workload
-    (finish_at.hour - start_at.hour) - interval_duration
+    to_hour(finish_at - start_at) - interval_duration
   end
 
   def interval_duration
-    interval_finish.hour - interval_start.hour
+    to_hour(interval_finish - interval_start)
+  end
+
+  protected
+
+  def to_hour(seconds)
+    seconds / 3600
   end
 end

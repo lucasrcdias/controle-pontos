@@ -15,10 +15,10 @@ describe Period do
   end
 
   describe "#interval_duration" do
-    it { expect(period.interval_duration).to eq(1) }
+    it { expect(period.interval_duration).to eq(1.0) }
   end
 
   describe "#workload" do
-    it { expect(period.workload).to eq(9) }
+    it { expect(period.workload).to eq(9.0) }
   end
 end
