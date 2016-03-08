@@ -5,7 +5,11 @@
   line-height: 1.8
 
 .table-options .btn
-  margin-right: 10px
+  @media screen and (max-width: $screen-xs-max)
+    margin-bottom: 10px
+
+  @media screen and (min-width: $screen-sm-min)
+    margin-right: 10px
 
   i
     margin: 0
