@@ -1,0 +1,28 @@
+.row
+  .col-sm-2
+    .box
+      .object-count
+        ' Total:
+        strong = frequencies.count
+
+  .col-sm-3.col-sm-offset-7
+    .box.clearfix
+      = link_to fa_icon('plus', text: "Nova frequência"), new_dashboard_frequency_path, class: "btn btn-success btn-block pull-right"
+  
+.box
+  - if frequencies.blank?
+    .alert.alert-info role="alert"
+      p Nenhuma frequência cadastrada
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th Dias da semana
+          th
+      tbody
+        - frequencies.each do |r|
+          tr
+            td = WeekDays.week_days_from_array(r.days)
+            td.text-right.table-options
+              = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_frequency_path(r), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
