@@ -1,11 +1,11 @@
 .row
-  .col-sm-2
+  .col-sm-3
     .box
       .object-count
         ' Total:
         strong = periods.count
 
-  .col-sm-2.col-sm-offset-8
+  .col-sm-4.col-sm-offset-5.col-md-3.col-md-offset-6
     .box.clearfix
       = link_to fa_icon('plus', text: "Novo período"), new_dashboard_period_path, class: "btn btn-success btn-block pull-right"
   
