@@ -3,25 +3,18 @@ class Dashboard::PeriodsController < Dashboard::BaseController
   expose(:period, attributes: :period_params)
 
   def create
-    if period.save
-      respond_with period, location: [:dashboard, :periods]
-    else
-      respond_with period, location: new_dashboard_period_path
-    end
+    period.save
+    respond_with period, location: [:dashboard, :periods]
   end
 
   def update
-    if period.save
-      respond_with period, location: [:dashboard, :periods]
-    else
-      respond_with period, location: edit_dashboard_period_path
-    end
+    period.save
+    respond_with period, location: [:dashboard, :periods]
   end
 
   def destroy
-    if period.destroy
-      respond_with period, location: [:dashboard, :periods]
-    end
+    period.destroy
+    respond_with period, location: [:dashboard, :periods]
   end
 
   protected

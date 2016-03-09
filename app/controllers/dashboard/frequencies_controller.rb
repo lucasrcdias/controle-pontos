@@ -3,19 +3,13 @@ class Dashboard::FrequenciesController < Dashboard::BaseController
   expose(:frequency, attributes: :frequency_params)
 
   def create
-    if frequency.save
-      respond_with frequency, location: [:dashboard, :frequencies]
-    else
-      respond_with frequency, location: new_dashboard_frequency_path
-    end
+    frequency.save
+    respond_with frequency, location: [:dashboard, :frequencies]
   end
 
   def update
-    if frequency.save
-      respond_with frequency, location: [:dashboard, :frequencies]
-    else
-      respond_with frequency, location: edit_dashboard_frequency_path
-    end
+    frequency.save
+    respond_with frequency, location: [:dashboard, :frequencies]
   end
 
   def destroy
