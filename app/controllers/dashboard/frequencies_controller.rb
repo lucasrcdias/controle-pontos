@@ -1,5 +1,5 @@
 class Dashboard::FrequenciesController < Dashboard::BaseController
-  expose(:frequencies)
+  expose(:frequencies) { current_company_user.company.frequencies }
   expose(:frequency, attributes: :frequency_params)
 
   def create

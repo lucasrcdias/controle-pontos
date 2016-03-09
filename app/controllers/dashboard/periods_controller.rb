@@ -1,5 +1,5 @@
 class Dashboard::PeriodsController < Dashboard::BaseController
-  expose(:periods)
+  expose(:periods) { current_company_user.company.periods }
   expose(:period, attributes: :period_params)
 
   def create
