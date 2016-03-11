@@ -31,8 +31,8 @@
             td = l r.finish_at,       format: :short
             td = l r.interval_start,  format: :short
             td = l r.interval_finish, format: :short
-            td = pluralize(r.interval_duration, 'hora')
-            td = pluralize(r.workload, 'hora')
+            td = r.time_humanize(r.interval_duration)
+            td = r.time_humanize(r.workload)
             td.text-right.table-options
               = link_to fa_icon('trash-o'), [:dashboard, r], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
               = link_to fa_icon('pencil'), edit_dashboard_period_path(r), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
