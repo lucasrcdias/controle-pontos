@@ -10,6 +10,14 @@ class Period < ActiveRecord::Base
     to_hour(interval_finish - interval_start)
   end
 
+  def time_humanize(time)
+    if time < 1
+      "#{(time * 1.minutes).to_i} minutos"
+    else
+      "#{time} horas"
+    end
+  end
+
   private
 
   def to_hour(seconds)
