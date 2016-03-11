@@ -4,9 +4,6 @@ log/*.log
 tmp
 coverage
 
-config/database.yml
-config/secrets.yml
-
 vendor/assets/bower
 
 public/system/*

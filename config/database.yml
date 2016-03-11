@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: tg-fatec_development
+
+test:
+  <<: *default
+  database: tg-fatec_test
+
+production:
+  <<: *default
+  database: tg-fatec_production
+  username: tg-fatec
+  password: <%= ENV['TG-FATEC_DATABASE_PASSWORD'] %>
