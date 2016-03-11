@@ -2,5 +2,5 @@
   .col-sm-4.col-sm-offset-4
     .box
       = simple_form_for [:dashboard, frequency], html: { novalidate: true } do |f|
-        = f.input :days, as: :check_boxes, collection: WeekDays.to_a
+        = f.input :days, as: :check_boxes, collection: WeekDays.to_a, include_hidden: false
         = f.submit t("helpers.links.#{form_action}"), class: 'btn btn-primary btn-block'

@@ -20,9 +20,8 @@ class Dashboard::FrequenciesController < Dashboard::BaseController
   protected
 
   def frequency_params
-    # Remove o valor vazio que vem do formulário gerado pelo
-    # simple form.
-    params[:frequency][:days].reject! { |day| !day.present? }
-    params.require(:frequency).permit!
+    return if params[:frequency].nil?
+
+    params.require(:frequency).permit(days: [])
   end
 end
