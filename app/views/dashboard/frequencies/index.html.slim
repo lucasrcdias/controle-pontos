@@ -17,7 +17,7 @@
     table.table.table-striped
       thead
         tr
-          th Dias da semana
+          th = Frequency.human_attribute_name(:days)
           th
       tbody
         - frequencies.each do |r|

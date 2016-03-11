@@ -17,12 +17,12 @@
     table.table.table-striped
       thead
         tr
-          th Início
-          th Fim
-          th Início do intervalo
-          th Fim do intervalo
-          th Duração do intervalo
-          th Carga horária
+          th = Period.human_attribute_name(:start_at)
+          th = Period.human_attribute_name(:finish_at)
+          th = Period.human_attribute_name(:interval_start)
+          th = Period.human_attribute_name(:interval_finish)
+          th = Period.human_attribute_name(:interval_duration)
+          th = Period.human_attribute_name(:workload)
           th
       tbody
         - periods.each do |r|

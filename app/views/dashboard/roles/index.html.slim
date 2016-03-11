@@ -17,7 +17,7 @@
     table.table.table-striped
       thead
         tr
-          th Nome
+          th = Role.human_attribute_name(:name)
           th
       tbody
         - roles.each do |r|
