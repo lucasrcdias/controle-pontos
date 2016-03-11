@@ -9,7 +9,7 @@ class Dashboard::RolesController < Dashboard::BaseController
 
   def destroy
     role.destroy
-    respond_with role, location: dashboard_roles_path
+    respond_with role, location: [:dashboard, :roles]
   end
 
   def update
