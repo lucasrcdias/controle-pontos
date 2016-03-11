@@ -5,6 +5,7 @@ pt-BR:
       company_user: 'Usuário da empresa'
       role: 'Cargo'
       period: 'Período'
+      frequency: 'Frequência'
 
     attributes:
       company:
@@ -26,3 +27,7 @@ pt-BR:
         finish_at: 'Término'
         interval_start: 'Início do intervalo'
         interval_finish: 'Fim do intervalo'
+        interval_duration: 'Duração do intervalo'
+        workload: 'Carga horária'
+      frequency:
+        days: 'Dias da semana'

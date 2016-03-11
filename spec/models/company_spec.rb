@@ -14,5 +14,6 @@ describe Company do
     it { should belong_to(:company_user) }
     it { should have_many(:roles) }
     it { should have_many(:periods) }
+    it { should have_many(:frequencies) }
   end
 end

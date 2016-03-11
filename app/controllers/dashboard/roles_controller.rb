@@ -3,25 +3,18 @@ class Dashboard::RolesController < Dashboard::BaseController
   expose(:role, attributes: :role_params)
 
   def create
-    if role.save
-      respond_with role, location: [:dashboard, :roles]
-    else
-      respond_with role, location: new_dashboard_role_path
-    end
+    role.save
+    respond_with role, location: [:dashboard, :roles]
   end
 
   def destroy
-    if role.destroy
-      respond_with role, location: dashboard_roles_path
-    end
+    role.destroy
+    respond_with role, location: [:dashboard, :roles]
   end
 
   def update
-    if role.save
-      respond_with role, location: [:dashboard, :roles]
-    else
-      respond_with role, location: edit_dashboard_role_path
-    end
+    role.save
+    respond_with role, location: [:dashboard, :roles]
   end
 
   protected
