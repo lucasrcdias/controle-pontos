@@ -56,4 +56,5 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'pry-rails',          '~> 0.3.4'
   gem 'pry-remote',         '~> 0.1.8'
+  gem 'railroady'
 end
