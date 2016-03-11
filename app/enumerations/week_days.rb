@@ -9,11 +9,13 @@ class WeekDays < EnumerateIt::Base
     sunday: [7, 'Domingo']
   )
 
+  sort_by :value
+
   def self.week_days_from_array(days_list)
     week_days = []
 
     days_list.sort_by(&:to_i).each do |day|
-      week_days << WeekDays.t(day) unless day.nil?
+      week_days << WeekDays.t(day)
     end
 
     week_days.to_sentence
