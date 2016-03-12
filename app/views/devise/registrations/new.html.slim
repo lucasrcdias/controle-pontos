@@ -4,7 +4,7 @@ h1.page-title Crie sua conta
 p.page-description Gerencie horários de forma simplificada
 
 .form
-  = render "form"
+  = render "form", locals: { manager: true }
 
 span.page-description
   ' Já possui uma conta?

@@ -9,11 +9,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    if resource.company.present?
+    if resource.has_company?
       dashboard_root_path
     else
       new_company_path
     end
+  end
+
+  def authenticate_manager!
+    authenticate_user! && current_user.manager?
   end
 
   decent_configuration do
