@@ -11,9 +11,9 @@ describe Company do
   end
 
   describe 'relationships' do
-    it { should belong_to(:company_user) }
-    it { should have_many(:roles) }
-    it { should have_many(:periods) }
-    it { should have_many(:frequencies) }
+    it { should belong_to(:manager) }
+    it { should have_many(:roles).dependent(:destroy) }
+    it { should have_many(:periods).dependent(:destroy) }
+    it { should have_many(:frequencies).dependent(:destroy) }
   end
 end
