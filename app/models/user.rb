@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   has_one :manager, dependent: :destroy
+
+  def manager?
+    manager.present?
+  end
 end
