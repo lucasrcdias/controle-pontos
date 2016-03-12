@@ -1,9 +1,0 @@
-nav.app-nav role="navigation"
-  .container
-    ul.nav-wrapper
-      - if company_user_signed_in?
-        li.nav-item = link_to "Cadastrar empresa", new_company_path,                  class: "nav-text"
-        li.nav-item = link_to "Sair",              destroy_company_user_session_path, class: "nav-text", method: :delete
-      - else
-        li.nav-item         = link_to "Login",          new_company_user_session_path,      class: "nav-text"
-        li.nav-item.sign-up = link_to "Crie sua conta", new_company_user_registration_path, class: "nav-text"
