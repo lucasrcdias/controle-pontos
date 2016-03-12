@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :name, presence: true
 
@@ -8,5 +8,13 @@ class User < ActiveRecord::Base
 
   def manager?
     manager.present?
+  end
+
+  def has_company?
+    manager? && manager.company.present?
+  end
+
+  def company
+    manager.company if has_company?
   end
 end
