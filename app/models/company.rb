@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   validates :social_reason, :fantasy_name, :cnpj, presence: true
   validates :cnpj, :code, uniqueness: true
+  validates :cnpj, cnpj: true
 
   belongs_to :manager
   has_many :roles, dependent: :destroy
