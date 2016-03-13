@@ -33,6 +33,9 @@ gem 'enumerate_it', '~> 1.2.8'
 gem 'responders',         '~> 2.1.0'
 gem 'decent_exposure',    '~> 2.3.2'
 
+#CPF/CNPJ
+gem 'brcpfcnpj', '~> 3.3'
+
 # Server
 gem 'puma', '~> 2.15.3'
 
