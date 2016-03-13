@@ -7,6 +7,6 @@ h1.page-title Cadastre sua empresa
     
     = f.input :fantasy_name, placeholder: "Ex: Variedade Supermercados", autofocus: true
     = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
-    = f.input :cnpj, as: :string, hint: "Digite somente números"
+    = f.input :cnpj, as: :string, hint: "Digite somente números", input_html: { data: { mask: 'cnpj' } }
   
     .form-footer = f.button :submit, "Cadastrar"
