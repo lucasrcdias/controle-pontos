@@ -28,6 +28,7 @@ describe Company do
     it { should belong_to(:manager) }
     it { should have_many(:roles).dependent(:destroy) }
     it { should have_many(:periods).dependent(:destroy) }
+    it { should have_many(:workers).dependent(:destroy) }
     it { should have_many(:frequencies).dependent(:destroy) }
   end
 end
