@@ -5,6 +5,7 @@ class Company < ActiveRecord::Base
 
   belongs_to :manager
   has_many :roles, dependent: :destroy
+  has_many :workers, dependent: :destroy
   has_many :periods, dependent: :destroy
   has_many :frequencies, dependent: :destroy
 
