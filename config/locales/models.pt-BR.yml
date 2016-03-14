@@ -2,7 +2,8 @@ pt-BR:
   activerecord:
     models:
       company: 'Empresa'
-      company_user: 'Usuário da empresa'
+      user: 'Usuário'
+      manager: 'Administrador'
       role: 'Cargo'
       period: 'Período'
       frequency: 'Frequência'
@@ -13,9 +14,8 @@ pt-BR:
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
         code: 'Código'
-      company_user:
+      user:
         name: 'Nome'
-        role: 'Tipo'
         email: 'E-mail'
         password: 'Senha'
         current_password: 'Senha atual'
