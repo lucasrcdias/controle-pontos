@@ -1,8 +1,8 @@
 # config/application.yml
 defaults: &defaults
-  app: "TG Fatec"
-  host: "tgfatec.dev"
-  company_url: "http://www.tgfatec.com.br"
+  app: "Controle de Ponto"
+  host: "controleponto.dev"
+  company_url: "http://www.controleponto.com.br"
 
 development:
   <<: *defaults
