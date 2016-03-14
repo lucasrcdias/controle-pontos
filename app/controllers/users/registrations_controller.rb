@@ -3,11 +3,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super do |resource|
-      resource.manager = Manager.new if params[:manager].present?
+      resource.manager = Manager.new if manager_sign_up?
     end
   end
 
   protected
+
+  def manager_sign_up?
+    params[:manager].present? && params[:manager] == 'true'
+  end
 
   def user_params
     [:name, :email, :password, :password_confirmation]
