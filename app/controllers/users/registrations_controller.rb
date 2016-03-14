@@ -13,10 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     [:name, :email, :password, :password_confirmation]
   end
 
-  def user_sign_up_params
-    user_params.concat([:role])
-  end
-
   def user_update_params
     user_params.concat([:current_password])
   end
@@ -24,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(user_sign_up_params)
+      u.permit(user_params)
     end
   end
 
