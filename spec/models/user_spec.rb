@@ -24,6 +24,18 @@ describe User do
     end
   end
 
+  describe "#worker?" do
+    context "is worker" do
+      before { user.update(worker: create(:pf_worker)) }
+
+      it { expect(user.worker?).to be true }
+    end
+
+    context "isnt worker" do
+      it { expect(user.worker?).to be false }
+    end
+  end
+
   describe "#has_company?" do
     context "when has company" do
       before { user.update(manager: Manager.new(company: company)) }
