@@ -8,4 +8,4 @@
         .row
           = f.input :interval_start, wrapper_html: { class: 'col-sm-6' }
           = f.input :interval_finish, wrapper_html: { class: 'col-sm-6' }
-        = f.submit t("helpers.links.#{form_action}"), class: 'btn btn-primary btn-block'
+        = f.button :submit, class: 'btn btn-primary btn-block'
