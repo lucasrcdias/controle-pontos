@@ -3,18 +3,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super do |resource|
-      resource.manager = Manager.new if params[:manager].present?
+      resource.manager = Manager.new if manager_sign_up?
     end
   end
 
   protected
 
-  def user_params
-    [:name, :email, :password, :password_confirmation]
+  def manager_sign_up?
+    params[:manager].present? && params[:manager] == 'true'
   end
 
-  def user_sign_up_params
-    user_params.concat([:role])
+  def user_params
+    [:name, :email, :password, :password_confirmation]
   end
 
   def user_update_params
@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(user_sign_up_params)
+      u.permit(user_params)
     end
   end
 

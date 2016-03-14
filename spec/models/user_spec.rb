@@ -9,7 +9,7 @@ describe User do
   end
 
   describe "relationships" do
-    it { have_one(:manager).dependent(:destroy) }
+    it { should have_one(:manager).dependent(:destroy) }
   end
 
   describe "#manager?" do
