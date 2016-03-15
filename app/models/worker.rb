@@ -1,7 +1,7 @@
 class Worker < ActiveRecord::Base
   extend EnumerateIt
 
-  validates :code, :document, :admitted_at, presence: true
+  validates :code, :document, :admitted_at, :user, presence: true
   validates :document, cpf:  { if: :pf? }
   validates :document, cnpj: { if: :pj? }
 
@@ -12,4 +12,14 @@ class Worker < ActiveRecord::Base
   belongs_to :period
   belongs_to :company
   belongs_to :frequency
+
+  scope :with_code, ->(code) { where(code: code) }
+
+  before_create :generate_code
+
+  private
+
+  def generate_code
+    self.code = UniqueCodeGenerator.generate_code(Worker)
+  end
 end
