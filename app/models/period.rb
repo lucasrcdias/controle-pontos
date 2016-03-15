@@ -18,6 +18,10 @@ class Period < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{ I18n.localize(start_at, format: :short) } - #{ I18n.localize(finish_at, format: :short) }"
+  end
+
   private
 
   def to_hour(seconds)
