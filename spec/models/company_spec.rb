@@ -8,6 +8,20 @@ describe Company do
 
     it { should validate_uniqueness_of(:cnpj) }
     it { should validate_uniqueness_of(:code) }
+
+    describe "validate cnpj" do
+      let(:company) { create(:company) }
+
+      context "valid cnpj" do
+        it { expect(company.valid?).to be true }
+      end
+
+      context "invalid cnpj" do
+        before { company.cnpj = '00invalid11cnpj' }
+
+        it { expect(company.valid?).to be false }
+      end
+    end
   end
 
   describe 'relationships' do
