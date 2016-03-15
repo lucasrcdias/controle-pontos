@@ -27,7 +27,10 @@ pt-BR:
         document: 'Documento'
         kind: 'Tipo de funcionário'
         admitted_at: 'Data de admissão'
-        internal_code: 'Código interno'
+        internal_id: 'Código interno'
+        frequency: 'Frequência'
+        period: 'Período'
+        role: 'Cargo'
       role:
         name: 'Nome'
       period:
