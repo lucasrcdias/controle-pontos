@@ -16,6 +16,6 @@ class Company < ActiveRecord::Base
   private
 
   def generate_code
-    self.code = CompanyCodeGenerator.generate_code
+    self.code = UniqueCodeGenerator.generate_code(Company)
   end
 end
