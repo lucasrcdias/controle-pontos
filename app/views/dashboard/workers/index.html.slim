@@ -1,0 +1,39 @@
+.row
+  .col-sm-3
+    .box
+      .object-count
+        ' Total:
+        strong = workers.count
+
+  .col-sm-4.col-sm-offset-5.col-md-3.col-md-offset-6
+    .box.clearfix
+      = link_to fa_icon('plus', text: "Novo funcionário"), new_dashboard_worker_path, class: "btn btn-success btn-block pull-right"
+  
+.box
+  - if workers.blank?
+    .alert.alert-info role="alert"
+      p Nenhum funcionário cadastrado
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th = Worker.human_attribute_name(:name)
+          th = Worker.human_attribute_name(:kind)
+          th = Worker.human_attribute_name(:admitted_at)
+          th = Worker.human_attribute_name(:document)
+          th = Worker.human_attribute_name(:internal_code)
+          th = Worker.human_attribute_name(:code)
+          th
+      tbody
+        - workers.each do |w|
+          tr
+            td = w.user.name
+            td = w.user.kind_humanize
+            td = l w.user.admitted_at, format: :short
+            td = w.user.document
+            td = w.user.internal_code
+            td
+              b = w.user.code
+            td.text-right.table-options
+              = link_to fa_icon('trash-o'), [:dashboard, w], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_worker_path(w), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
