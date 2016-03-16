@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308111426) do
+ActiveRecord::Schema.define(version: 20160312150445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,50 @@ ActiveRecord::Schema.define(version: 20160308111426) do
     t.string   "fantasy_name"
     t.string   "cnpj"
     t.integer  "code"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "company_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "manager_id"
   end
 
-  add_index "companies", ["company_user_id"], name: "index_companies_on_company_user_id", using: :btree
+  add_index "companies", ["manager_id"], name: "index_companies_on_manager_id", using: :btree
 
-  create_table "company_users", force: :cascade do |t|
+  create_table "frequencies", force: :cascade do |t|
+    t.integer "days",       default: [], array: true
+    t.integer "company_id"
+  end
+
+  add_index "frequencies", ["company_id"], name: "index_frequencies_on_company_id", using: :btree
+
+  create_table "managers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "managers", ["user_id"], name: "index_managers_on_user_id", using: :btree
+
+  create_table "periods", force: :cascade do |t|
+    t.time     "start_at"
+    t.time     "finish_at"
+    t.time     "interval_start"
+    t.time     "interval_finish"
+    t.integer  "company_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "periods", ["company_id"], name: "index_periods_on_company_id", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["company_id"], name: "index_roles_on_company_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -48,36 +84,9 @@ ActiveRecord::Schema.define(version: 20160308111426) do
     t.string   "unconfirmed_email"
   end
 
-  add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true, using: :btree
-  add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "frequencies", force: :cascade do |t|
-    t.integer "days",       default: [], array: true
-    t.integer "company_id"
-  end
-
-  add_index "frequencies", ["company_id"], name: "index_frequencies_on_company_id", using: :btree
-
-  create_table "periods", force: :cascade do |t|
-    t.time     "start_at"
-    t.time     "finish_at"
-    t.integer  "company_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.time     "interval_finish"
-    t.time     "interval_start"
-  end
-
-  add_index "periods", ["company_id"], name: "index_periods_on_company_id", using: :btree
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "roles", ["company_id"], name: "index_roles_on_company_id", using: :btree
-
-  add_foreign_key "companies", "company_users"
+  add_foreign_key "companies", "managers"
+  add_foreign_key "managers", "users"
 end

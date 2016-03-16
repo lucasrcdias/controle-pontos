@@ -1,5 +1,5 @@
 {
-  "name": "tg-fatec",
+  "name": "controle-ponto",
   "version": "1.0.0",
   "license": "MIT",
   "ignore": [
@@ -12,7 +12,9 @@
   "dependencies": {
     "bootstrap-sass-official": "~3.3.1",
     "jquery": "~2.1.0",
-    "jquery-ujs": "~1.0.1"
+    "jquery-ujs": "~1.0.1",
+    "module": "~1.0.4",
+    "jquery-meiomask": "~1.1.14"
   },
   "resolutions": {
     "jquery": "~2.1.0"

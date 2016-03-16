@@ -1,5 +1,5 @@
 class Dashboard::RolesController < Dashboard::BaseController
-  expose(:roles) { current_company_user.company.roles }
+  expose(:roles) { current_user.company.roles }
   expose(:role, attributes: :role_params)
 
   def create

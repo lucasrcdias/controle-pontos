@@ -12,7 +12,7 @@ p.page-description
     = f.input :remember_me, as: :hidden, input_html: { value: true } if devise_mapping.rememberable?
 
     .form-footer 
-      = link_to "Reenviar email de confirmação", new_confirmation_path(resource_name), class: "form-footer-text form-footer-link"
+      = link_to "Reenviar email de confirmação", new_user_confirmation_path(resource_name), class: "form-footer-text form-footer-link"
       = f.button :submit, "Entrar"
 
 span.page-description

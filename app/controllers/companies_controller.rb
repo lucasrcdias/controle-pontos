@@ -1,18 +1,18 @@
 class CompaniesController < ApplicationController
   layout "application"
 
-  before_action :authenticate_company_user!
+  before_action :authenticate_manager!
 
   expose(:company, attributes: :company_params)
 
   def new
-    redirect_to dashboard_root_path and return if current_company_user.company.present?
+    return redirect_to dashboard_root_path if current_user.has_company?
   end
 
   def create
-    company.company_user = current_company_user
+    company.manager = current_user.manager
     company.save
-    respond_with company, location: root_path
+    respond_with company, location: dashboard_root_path
   end
 
   private

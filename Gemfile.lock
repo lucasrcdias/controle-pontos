@@ -45,6 +45,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    brcpfcnpj (3.3.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     builder (3.2.2)
     capistrano (2.15.6)
       highline
@@ -226,6 +229,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors (~> 2.1.1)
   binding_of_caller (~> 0.7.2)
+  brcpfcnpj (~> 3.3)
   capistrano (= 2.15.6)
   capybara (~> 2.5.0)
   database_rewinder

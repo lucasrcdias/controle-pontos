@@ -8,12 +8,26 @@ describe Company do
 
     it { should validate_uniqueness_of(:cnpj) }
     it { should validate_uniqueness_of(:code) }
+
+    describe "validate cnpj" do
+      let(:company) { create(:company) }
+
+      context "valid cnpj" do
+        it { expect(company.valid?).to be true }
+      end
+
+      context "invalid cnpj" do
+        before { company.cnpj = '00invalid11cnpj' }
+
+        it { expect(company.valid?).to be false }
+      end
+    end
   end
 
   describe 'relationships' do
-    it { should belong_to(:company_user) }
-    it { should have_many(:roles) }
-    it { should have_many(:periods) }
-    it { should have_many(:frequencies) }
+    it { should belong_to(:manager) }
+    it { should have_many(:roles).dependent(:destroy) }
+    it { should have_many(:periods).dependent(:destroy) }
+    it { should have_many(:frequencies).dependent(:destroy) }
   end
 end

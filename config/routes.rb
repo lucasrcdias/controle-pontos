@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  root to: "companies#new"
+  root to: "statics#home"
 
-  devise_for :company_users, controllers: { registrations: 'company_users/registrations' }
-  devise_scope :company_user do
-    get 'sucesso',   to: 'company_users/registrations#success', as: :success_sign_up
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }, path: '', path_names: {
+    sign_in: 'entrar', sign_out: 'sair', password: 'senha', confirmation: 'confirmacao', unlock: 'desbloquear', sign_up: 'cadastre-se', edit: 'alterar', new: 'nova'
+  }
+
+  devise_scope :user do
+    get 'sucesso', to: 'users/registrations#success', as: :success_sign_up
   end
 
   namespace :dashboard do

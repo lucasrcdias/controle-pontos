@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Period do
-  let(:period) { create(:period) }
+  let(:period) { build(:period) }
 
   describe "validations" do
     it { should validate_presence_of(:start_at) }
