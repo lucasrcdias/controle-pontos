@@ -13,7 +13,7 @@ html lang=I18n.locale
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
 
-  body.application
+  body.application data-route=dispatcher_route
     main
       .container
         = yield
