@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   end
 
   def has_company?
-    manager? && manager.company.present?
+    manager&.company.present?
   end
 
   def company
