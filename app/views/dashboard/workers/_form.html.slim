@@ -1,32 +1,33 @@
 .row
   .col-sm-8.col-sm-offset-2
     .box
-      = simple_form_for(worker.user, url: registration_path(User)) do |f|
+      = simple_form_for [:dashboard, worker] do |f|
         .row
           .col-sm-12
+            = worker.errors.inspect
             fieldset
               legend Dados de acesso
             
               .row
-                = f.input :name, required: true, autofocus: true, wrapper_html: { class: 'col-sm-6' }
-                = f.input :email, required: true, wrapper_html: { class: 'col-sm-6' }
+                = f.fields_for :user do |u|
+                  = u.input :name, required: true, autofocus: true, wrapper_html: { class: 'col-sm-6' }
+                  = u.input :email, required: true, wrapper_html: { class: 'col-sm-6' }
 
         .row
           .col-sm-12
             fieldset
               legend Dados do funcionário
 
-              = f.fields_for :worker do |w|
-                .row
-                  = w.input :kind, as: :radio_buttons, collection: WorkerKind.to_a, wrapper_html: { class: 'col-sm-5' }
-                  = w.input :document, wrapper_html: { class: 'col-sm-4' }, input_html: { class: 'js-document-field', data: { mask: 'cpf' } }
-                  = w.input :internal_id, as: :integer, wrapper_html: { class: 'col-sm-3' }
+              .row
+                = f.input :kind, as: :radio_buttons, collection: WorkerKind.to_a, wrapper_html: { class: 'col-sm-5' }
+                = f.input :document, wrapper_html: { class: 'col-sm-4' }, input_html: { class: 'js-document-field', data: { mask: 'cpf' } }
+                = f.input :internal_id, as: :integer, wrapper_html: { class: 'col-sm-3' }
 
-                .row
-                  = w.input :role, as: :select, collection: roles, prompt: 'Selecione um cargo', wrapper_html: { class: 'col-sm-4' }
-                  = w.input :period, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-4' }
-                  = w.input :frequency, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-4' }
-                
-                .row
-                  = w.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-6' }
-                  .col-sm-3.pull-right = f.button :submit, "Cadastrar funcionário", class: 'btn-primary btn-block'
+              .row
+                = f.input :role_id, as: :select, collection: roles, prompt: 'Selecione um cargo', wrapper_html: { class: 'col-sm-4' }
+                = f.input :period_id, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-4' }
+                = f.input :frequency_id, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-4' }
+              
+              .row
+                = f.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-6' }
+                .col-sm-3.pull-right = f.button :submit, "Cadastrar funcionário", class: 'btn-primary btn-block'

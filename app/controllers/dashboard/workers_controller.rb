@@ -9,6 +9,12 @@ class Dashboard::WorkersController < Dashboard::BaseController
     worker.user = User.new unless worker.user.present?
   end
 
+  def create
+    worker.company = current_user.company
+    worker.save
+    respond_with worker, location: [:dashboard, :workers]
+  end
+
   private
 
   def worker_params
