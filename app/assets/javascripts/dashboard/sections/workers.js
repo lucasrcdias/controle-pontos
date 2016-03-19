@@ -1,4 +1,4 @@
-Module('App.DashboardWorkers', function (Workers) {
+Module('Application.DashboardWorkers', function (Workers) {
   Workers.fn.initialize = function () {
     this.$workerKind    = $('span.radio input');
     this.$documentField = $('.js-document-field');
