@@ -8,6 +8,9 @@ pt-BR:
         password:
           create: 'Enviar'
           update: 'Redefinir'
+      worker:
+        create: 'Criar funcionário'
+        update: 'Salvar alterações'
 
   simple_form:
     "yes": 'Sim'
