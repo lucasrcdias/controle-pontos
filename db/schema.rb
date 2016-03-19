@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314110512) do
+ActiveRecord::Schema.define(version: 20160318131431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,26 @@ ActiveRecord::Schema.define(version: 20160314110512) do
   end
 
   add_index "companies", ["manager_id"], name: "index_companies_on_manager_id", using: :btree
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "name"
+    t.string   "document"
+    t.integer  "kind"
+    t.integer  "code"
+    t.integer  "internal_id"
+    t.date     "admitted_at"
+    t.integer  "company_id"
+    t.integer  "role_id"
+    t.integer  "period_id"
+    t.integer  "frequency_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
+  add_index "employees", ["frequency_id"], name: "index_employees_on_frequency_id", using: :btree
+  add_index "employees", ["period_id"], name: "index_employees_on_period_id", using: :btree
+  add_index "employees", ["role_id"], name: "index_employees_on_role_id", using: :btree
 
   create_table "frequencies", force: :cascade do |t|
     t.integer "days",       default: [], array: true
@@ -109,6 +129,10 @@ ActiveRecord::Schema.define(version: 20160314110512) do
   add_index "workers", ["user_id"], name: "index_workers_on_user_id", using: :btree
 
   add_foreign_key "companies", "managers"
+  add_foreign_key "employees", "companies"
+  add_foreign_key "employees", "frequencies"
+  add_foreign_key "employees", "periods"
+  add_foreign_key "employees", "roles"
   add_foreign_key "managers", "users"
   add_foreign_key "workers", "companies"
   add_foreign_key "workers", "frequencies"
