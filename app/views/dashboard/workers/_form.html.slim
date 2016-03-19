@@ -4,7 +4,6 @@
       = simple_form_for [:dashboard, worker] do |f|
         .row
           .col-sm-12
-            = worker.errors.inspect
             fieldset
               legend Dados de acesso
             
@@ -19,7 +18,7 @@
               legend Dados do funcionário
 
               .row
-                = f.input :kind, as: :radio_buttons, collection: WorkerKind.to_a, wrapper_html: { class: 'col-sm-5' }
+                = f.input :kind, as: :radio_buttons, collection: WorkerKind.to_a, checked: WorkerKind::PF  , wrapper_html: { class: 'col-sm-5' }
                 = f.input :document, wrapper_html: { class: 'col-sm-4' }, input_html: { class: 'js-document-field', data: { mask: 'cpf' } }
                 = f.input :internal_id, as: :integer, wrapper_html: { class: 'col-sm-3' }
 
@@ -30,4 +29,4 @@
               
               .row
                 = f.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-6' }
-                .col-sm-3.pull-right = f.button :submit, "Cadastrar funcionário", class: 'btn-primary btn-block'
+                .col-sm-3.pull-right = f.button :submit, class: 'btn-primary btn-block'
