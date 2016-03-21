@@ -2,6 +2,7 @@ class Worker < ActiveRecord::Base
   extend EnumerateIt
 
   validates :document, :admitted_at, :user, presence: true
+  validates :document, :code, uniqueness: true
   validates :document, cpf:  { if: :pf? }
   validates :document, cnpj: { if: :pj? }
 
