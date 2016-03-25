@@ -1,0 +1,20 @@
+h1 = Settings.app
+
+hr
+
+h2 = "Olá #{@worker.user.name},"
+
+p 
+  ' A empresa
+  => @worker.company.fantasy_name
+  ' lhe cadastrou para utilizar a ferramenta
+  strong => Settings.app
+  '.
+
+p
+  ' Sua senha para acesso ao painel de informações é:
+  strong = @password
+
+br
+p Atenciosamente,
+strong = "Equipe #{Settings.app}"
