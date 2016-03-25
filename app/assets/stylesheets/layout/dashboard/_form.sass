@@ -1,4 +1,4 @@
-@import '../../globals/base'
+@import 'globals/base'
 
 .control-label
   display: block
@@ -10,3 +10,14 @@
 span.radio
   margin-right: 10px
   display: inline-block
+
+.form-group.date
+  label
+    display: block
+
+  select
+    float: left
+    width: ((100 / 3) - 1) * 1%
+
+    &:not(:last-child)
+      margin-right: 5px

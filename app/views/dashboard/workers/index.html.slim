@@ -1,18 +1,43 @@
 .row
-  .col-sm-3
+  .col-sm-9
+    h1.page-title Funcionários
+  
+  .col-sm-3.text-right
+    = link_to fa_icon('filter', text: 'Filtrar funcionários'), "#", class: 'btn btn-default js-filter-toggle filter-toggle'
+  
+  .col-sm-12.filter-wrapper.js-filter-wrapper class="#{'filtered' if filtered?}"
+    .box.filter.clearfix
+      = search_form_for q, url: [:dashboard, :workers] do |s|
+        .form-group.col-sm-4
+          = s.label :user_name_cont, class: 'control-label'
+          = s.search_field :user_name_cont, class: 'form-control'
+        
+        .form-group.col-sm-3
+          = s.label :document_eq, class: 'control-label'
+          = s.search_field :document_eq, class: 'form-control'
+        
+        .form-group.col-sm-3
+          = s.label :code_or_internal_id_eq, class: 'control-label'
+          = s.search_field :code_or_internal_id_eq, class: 'form-control'
+        
+        .form-group.col-sm-2
+          = s.submit 'Filtrar', class: 'btn btn-primary btn-block btn-form'
+    
+.row
+  .col-sm-2
     .box
       .object-count
         ' Total:
         strong = workers.count
-
-  .col-sm-4.col-sm-offset-5.col-md-3.col-md-offset-6
+  
+  .col-sm-4.col-sm-offset-6.col-md-3.col-md-offset-7
     .box.clearfix
       = link_to fa_icon('plus', text: "Novo funcionário"), new_dashboard_worker_path, class: "btn btn-success btn-block pull-right"
   
 .box
   - if workers.blank?
     .alert.alert-info role="alert"
-      p Nenhum funcionário cadastrado
+      p Nenhum funcionário encontrado
   - else
     table.table.table-striped
       thead

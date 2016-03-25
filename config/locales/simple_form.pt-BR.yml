@@ -2,7 +2,7 @@ pt-BR:
   helpers:
     submit:
       user:
-        create: 'Cadastre-se'
+        create: 'Criar conta'
         session: 'Entrar'
         confirmation: 'Enviar'
         password:

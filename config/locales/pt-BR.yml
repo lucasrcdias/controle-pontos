@@ -200,6 +200,12 @@ pt-BR:
       short: ! '%H:%M'
       short_with_time: '%d/%m/%Y %H:%M'
     pm: ''
+  ransack:
+    attributes:
+      worker:
+        user_name_cont: 'Nome'
+        document_eq: 'Documento'
+        code_or_internal_id_eq: 'Código de acesso ou código interno'
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

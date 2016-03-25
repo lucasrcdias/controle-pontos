@@ -24,9 +24,9 @@
 
               .row
                 = f.input :role_id, as: :select, collection: roles, prompt: 'Selecione um cargo', wrapper_html: { class: 'col-sm-4' }
-                = f.input :period_id, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-4' }
-                = f.input :frequency_id, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-4' }
+                = f.input :frequency_id, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-8' }
               
               .row
                 = f.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-6' }
-                .col-sm-3.pull-right = f.button :submit, class: 'btn-primary btn-block'
+                = f.input :period_id, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-3' }
+                .col-sm-3 = f.button :submit, class: 'btn-primary btn-block btn-form'
