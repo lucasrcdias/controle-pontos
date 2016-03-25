@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { create(:user) }
-  let(:company) { create(:company) }
+  let(:user) { build(:user) }
+  let(:company) { build(:company) }
 
   describe "validations" do
     it { should validate_presence_of(:name) }
@@ -38,7 +38,7 @@ describe User do
 
   describe "#has_company?" do
     context "when has company" do
-      before { user.update(manager: Manager.new(company: company)) }
+      before { user.manager = build(:manager, company: company) }
 
       it { expect(user.has_company?).to be true }
     end
@@ -49,9 +49,9 @@ describe User do
   end
 
   describe "#company" do
-    before { user.update(manager: Manager.new(company: company)) }
+    before { user.manager = build(:manager, company: company) }
 
-    it { expect(user.company.fantasy_name).not_to be nil }
+    it { expect(user.company.fantasy_name).not_to be_nil }
     it { expect(user.company.fantasy_name).to eql(company.fantasy_name) }
     it { expect(user.company.social_reason).to eql(company.social_reason) }
     it { expect(user.company.cnpj).to eql(company.cnpj) }
