@@ -1,0 +1,10 @@
+.col-sm-12.filter-wrapper.js-filter-wrapper class="#{'filtered' if filtered?}"
+  .box.filter.clearfix
+    = search_form_for q, url: url do |s|
+      - criterias.each do |criteria|
+        .form-group class=criteria.last
+          = s.label criteria.first, class: 'control-label'
+          = s.search_field criteria.first, class: 'form-control'
+        
+      .form-group.col-sm-2
+        = s.submit 'Filtrar', class: 'btn btn-primary btn-block btn-form'
