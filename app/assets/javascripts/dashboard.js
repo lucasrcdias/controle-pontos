@@ -8,3 +8,4 @@
 //= require_tree ./dashboard/sections
 
 Module.run('App.InputMask');
+Module.run('App.Filter');
