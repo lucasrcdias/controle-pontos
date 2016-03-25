@@ -12,9 +12,9 @@ class Period < ActiveRecord::Base
 
   def time_humanize(time)
     if time < 1
-      "#{(time * 1.minutes).to_i.round(2)} minutos"
+      "#{"%g" % (time * 1.minutes).to_i.round(2)} minutos"
     else
-      "#{time.round(2)} horas"
+      "#{"%g" % time.round(2)} horas"
     end
   end
 
