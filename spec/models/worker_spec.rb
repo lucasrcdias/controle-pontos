@@ -10,13 +10,13 @@ describe Worker do
     it { should validate_uniqueness_of(:document) }
 
     context "pf worker" do
-      let(:pf_worker) { create(:pf_worker) }
+      let(:pf_worker) { build(:pf_worker) }
 
       it { expect(pf_worker).to be_valid }
     end
 
     context "pj worker" do
-      let(:pj_worker) { create(:pj_worker) }
+      let(:pj_worker) { build(:pj_worker) }
 
       it { expect(pj_worker).to be_valid }
     end

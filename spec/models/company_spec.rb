@@ -10,7 +10,7 @@ describe Company do
     it { should validate_uniqueness_of(:code) }
 
     describe "validate cnpj" do
-      let(:company) { create(:company) }
+      let(:company) { build(:company) }
 
       context "valid cnpj" do
         it { expect(company.valid?).to be true }

@@ -26,7 +26,7 @@ describe User do
 
   describe "#worker?" do
     context "is worker" do
-      before { user.update(worker: create(:pf_worker)) }
+      before { user.update(worker: build(:pf_worker)) }
 
       it { expect(user.worker?).to be true }
     end
