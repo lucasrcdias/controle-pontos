@@ -28,9 +28,9 @@ pt-BR:
         kind: 'Tipo de funcionário'
         admitted_at: 'Data de admissão'
         internal_id: 'Código interno'
-        frequency_id: 'Frequência'
-        period_id: 'Período'
-        role_id: 'Cargo'
+        frequency: 'Frequência'
+        period: 'Período'
+        role: 'Cargo'
       role:
         name: 'Nome'
       period:
