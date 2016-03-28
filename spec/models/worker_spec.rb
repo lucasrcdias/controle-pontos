@@ -4,8 +4,13 @@ describe Worker do
   describe "validations" do
     it { should validate_presence_of(:kind) }
     it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:role) }
+    it { should validate_presence_of(:period) }
+    it { should validate_presence_of(:company) }
     it { should validate_presence_of(:document) }
+    it { should validate_presence_of(:frequency) }
     it { should validate_presence_of(:admitted_at) }
+
     it { should validate_uniqueness_of(:code) }
     it { should validate_uniqueness_of(:document) }
 
