@@ -34,7 +34,7 @@
           th = Worker.human_attribute_name(:internal_id)
           th
       tbody
-        - workers.each do |w|
+        - workers.includes(:user).each do |w|
           tr
             td
               b = w.code
