@@ -12,7 +12,7 @@ class WorkerService
   private
 
   def setup_worker
-    generated_password   = Devise.friendly_token.first(8)
+    generated_password    = Devise.friendly_token.first(8)
     @worker.user.password = generated_password
 
     set_reset_token
@@ -23,7 +23,7 @@ class WorkerService
   def set_reset_token
     @token, enc = Devise.token_generator.generate(User, :reset_password_token)
 
-    @worker.user.reset_password_token = enc
+    @worker.user.reset_password_token   = enc
     @worker.user.reset_password_sent_at = Time.now.utc
   end
 end

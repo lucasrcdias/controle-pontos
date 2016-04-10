@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :worker do
-    association :user, strategy: :build
-    association :role, strategy: :build
-    association :period, strategy: :build
-    association :company, strategy: :build
+    association :user,      strategy: :build
+    association :role,      strategy: :build
+    association :period,    strategy: :build
+    association :company,   strategy: :build
     association :frequency, strategy: :build
 
     admitted_at { Date.new }
