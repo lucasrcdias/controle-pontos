@@ -7,7 +7,7 @@ class Dashboard::WorkersController < Dashboard::BaseController
   expose(:worker, attributes: :worker_params)
 
   def new
-    worker.user = User.new unless worker.user.present?
+    worker.user = User.new
   end
 
   def create
