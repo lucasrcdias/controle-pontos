@@ -1,4 +1,6 @@
 class Company < ActiveRecord::Base
+  include UniqueCodeGenerator
+
   validates :social_reason, :fantasy_name, :cnpj, presence: true
   validates :cnpj, :code, uniqueness: true
   validates :cnpj, cnpj: true
@@ -10,12 +12,4 @@ class Company < ActiveRecord::Base
   has_many :frequencies, dependent: :destroy
 
   scope :with_code, ->(code) { where(code: code) }
-
-  before_create :generate_code
-
-  private
-
-  def generate_code
-    self.code = UniqueCodeGenerator.generate_code(Company)
-  end
 end

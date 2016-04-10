@@ -1,5 +1,5 @@
 class Worker < ActiveRecord::Base
-  extend EnumerateIt
+  include UniqueCodeGenerator
 
   validates :document, :admitted_at, :user, :role, :period, :company, :frequency, presence: true
   validates :document, :code, uniqueness: true
@@ -15,14 +15,4 @@ class Worker < ActiveRecord::Base
   belongs_to :frequency
 
   accepts_nested_attributes_for :user
-
-  scope :with_code, ->(code) { where(code: code) }
-
-  before_create :generate_code
-
-  private
-
-  def generate_code
-    self.code = UniqueCodeGenerator.generate_code(Worker)
-  end
 end
