@@ -4,15 +4,7 @@ defaults: &defaults
   host: "localhost:3000"
   company_url: "http://www.imperium.com.br"
   smtp:
-    from: 'Imperium <noreply@zigotto.com.br>'
-    settings:
-      address: "smtp.gmail.com"
-      port: 587
-      domain: "zigotto.com.br"
-      user_name: "noreply@zigotto.com.br"
-      password: "zigmara8585"
-      authentication: "plain"
-      enable_starttls_auto: true
+    from: 'Imperium <noreply@imperium.com.br>'
 
 development:
   <<: *defaults
