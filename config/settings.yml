@@ -1,8 +1,10 @@
 # config/application.yml
 defaults: &defaults
-  app: "Controle de Ponto"
-  host: "controleponto.dev"
-  company_url: "http://www.controleponto.com.br"
+  app: "Imperium"
+  host: "localhost:3000"
+  company_url: "http://www.imperium.com.br"
+  smtp:
+    from: 'Imperium <noreply@imperium.com.br>'
 
 development:
   <<: *defaults

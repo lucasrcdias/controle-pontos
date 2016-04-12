@@ -1,0 +1,32 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .box
+      = simple_form_for [:dashboard, worker] do |f|
+        .row
+          .col-sm-12
+            fieldset
+              legend Dados de acesso
+            
+              .row
+                = f.fields_for :user do |u|
+                  = u.input :name, required: true, autofocus: true, wrapper_html: { class: 'col-sm-6' }
+                  = u.input :email, required: true, wrapper_html: { class: 'col-sm-6' }
+
+        .row
+          .col-sm-12
+            fieldset
+              legend Dados do funcionário
+
+              .row
+                = f.input :kind, as: :radio_buttons, collection: WorkerKind.to_a, checked: WorkerKind::PF  , wrapper_html: { class: 'col-sm-5' }
+                = f.input :document, wrapper_html: { class: 'col-sm-4' }, input_html: { class: 'js-document-field', data: { mask: 'cpf' } }
+                = f.input :internal_id, as: :integer, wrapper_html: { class: 'col-sm-3' }
+
+              .row
+                = f.association :role, as: :select, collection: roles, prompt: 'Selecione um cargo', wrapper_html: { class: 'col-sm-4' }
+                = f.association :frequency, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-8' }
+              
+              .row
+                = f.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-5' }
+                = f.association :period, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-4' }
+                .col-sm-3 = f.button :submit, class: 'btn-primary btn-block btn-form'

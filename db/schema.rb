@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312150445) do
+ActiveRecord::Schema.define(version: 20160314110512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,32 @@ ActiveRecord::Schema.define(version: 20160312150445) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "workers", force: :cascade do |t|
+    t.integer  "internal_id"
+    t.integer  "kind"
+    t.integer  "code"
+    t.string   "document"
+    t.datetime "admitted_at"
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.integer  "period_id"
+    t.integer  "frequency_id"
+    t.integer  "role_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "workers", ["company_id"], name: "index_workers_on_company_id", using: :btree
+  add_index "workers", ["frequency_id"], name: "index_workers_on_frequency_id", using: :btree
+  add_index "workers", ["period_id"], name: "index_workers_on_period_id", using: :btree
+  add_index "workers", ["role_id"], name: "index_workers_on_role_id", using: :btree
+  add_index "workers", ["user_id"], name: "index_workers_on_user_id", using: :btree
+
   add_foreign_key "companies", "managers"
   add_foreign_key "managers", "users"
+  add_foreign_key "workers", "companies"
+  add_foreign_key "workers", "frequencies"
+  add_foreign_key "workers", "periods"
+  add_foreign_key "workers", "roles"
+  add_foreign_key "workers", "users"
 end

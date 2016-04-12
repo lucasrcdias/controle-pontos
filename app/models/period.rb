@@ -12,10 +12,14 @@ class Period < ActiveRecord::Base
 
   def time_humanize(time)
     if time < 1
-      "#{(time * 1.minutes).to_i} minutos"
+      "#{"%g" % (time * 1.minutes).to_i.round(2)} minutos"
     else
-      "#{time} horas"
+      "#{"%g" % time.round(2)} horas"
     end
+  end
+
+  def to_s
+    "#{ I18n.localize(start_at, format: :short) } - #{ I18n.localize(finish_at, format: :short) }"
   end
 
   private

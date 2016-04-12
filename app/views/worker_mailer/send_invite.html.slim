@@ -1,0 +1,21 @@
+h1 = Settings.app
+
+hr
+
+h2 = "Olá #{@worker.user.name},"
+
+p 
+  ' A empresa
+  => @worker.company.fantasy_name
+  ' lhe cadastrou para utilizar a ferramenta
+  strong => Settings.app
+  '.
+
+p
+  ' Defina sua senha clicando no link abaixo:
+  br
+  = link_to "Criar senha", edit_password_url(@worker.user, reset_password_token: @token)
+
+br
+p Atenciosamente,
+strong = "Equipe #{Settings.app}"

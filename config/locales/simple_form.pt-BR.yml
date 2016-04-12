@@ -2,12 +2,15 @@ pt-BR:
   helpers:
     submit:
       user:
-        create: 'Cadastre-se'
+        create: 'Criar conta'
         session: 'Entrar'
         confirmation: 'Enviar'
         password:
           create: 'Enviar'
           update: 'Redefinir'
+      worker:
+        create: 'Criar funcionário'
+        update: 'Salvar alterações'
 
   simple_form:
     "yes": 'Sim'

@@ -5,9 +5,14 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   has_one :manager, dependent: :destroy
+  has_one :worker, inverse_of: :user, dependent: :destroy
 
   def manager?
     manager.present?
+  end
+
+  def worker?
+    worker.present?
   end
 
   def has_company?
