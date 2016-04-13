@@ -13,7 +13,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['CONTROLE_PONTO_DATABASE'] %>
+  database: <%= ENV['DATABASE_URL'] %>
   username: <%= ENV['CONTROLE_PONTO_DATABASE_USER'] %>
   host: <%= ENV['CONTROLE_PONTO_DATABASE_HOST'] %>
   password: <%= ENV['CONTROLE_PONTO_DATABASE_PWD'] %>
