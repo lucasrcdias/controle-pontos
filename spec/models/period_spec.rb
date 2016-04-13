@@ -30,7 +30,7 @@ describe Period do
     end
 
     context "more or equal a hour" do
-      it { expect(period.time_humanize(period.workload)).to eql('9.0 horas') }
+      it { expect(period.time_humanize(period.workload)).to eql('9 horas') }
     end
   end
 end

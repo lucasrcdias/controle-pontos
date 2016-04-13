@@ -4,6 +4,7 @@ pt-BR:
       company: 'Empresa'
       user: 'Usuário'
       manager: 'Administrador'
+      worker: 'Funcionário'
       role: 'Cargo'
       period: 'Período'
       frequency: 'Frequência'
@@ -20,6 +21,16 @@ pt-BR:
         password: 'Senha'
         current_password: 'Senha atual'
         password_confirmation: 'Confirmação de senha'
+      worker:
+        name: 'Nome'
+        code: 'Código'
+        document: 'Documento'
+        kind: 'Tipo de funcionário'
+        admitted_at: 'Data de admissão'
+        internal_id: 'Código interno'
+        frequency: 'Frequência'
+        period: 'Período'
+        role: 'Cargo'
       role:
         name: 'Nome'
       period:

@@ -1,6 +1,6 @@
 pt-BR:
   enumerations:
-    days:
+    week_days:
       monday: 'Segunda-feira'
       tuesday: 'Terça-feira'
       wednesday: 'Quarta-feira'
@@ -8,3 +8,6 @@ pt-BR:
       friday: 'Sexta-feira'
       saturday: 'Sábado'
       sunday: 'Domingo'
+    worker_kind:
+      pf: 'Pessoa física'
+      pj: 'Pessoa jurídica'

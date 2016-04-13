@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       resources :periods,     path: 'periodos'
       resources :frequencies, path: 'frequencias'
     end
+
+    resources :workers
   end
 
   resources :companies, only: [:new, :create]

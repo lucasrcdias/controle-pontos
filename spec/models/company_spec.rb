@@ -10,7 +10,7 @@ describe Company do
     it { should validate_uniqueness_of(:code) }
 
     describe "validate cnpj" do
-      let(:company) { create(:company) }
+      let(:company) { build(:company) }
 
       context "valid cnpj" do
         it { expect(company.valid?).to be true }
@@ -28,6 +28,7 @@ describe Company do
     it { should belong_to(:manager) }
     it { should have_many(:roles).dependent(:destroy) }
     it { should have_many(:periods).dependent(:destroy) }
+    it { should have_many(:workers).dependent(:destroy) }
     it { should have_many(:frequencies).dependent(:destroy) }
   end
 end

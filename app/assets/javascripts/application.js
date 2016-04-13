@@ -4,6 +4,6 @@
 //= require dispatcher
 //= require jquery-meiomask/dist/meiomask
 //= require_tree ./modules
-//= require_tree ./sections
+//= require_tree ./application/sections
 
 Module.run('App.InputMask');

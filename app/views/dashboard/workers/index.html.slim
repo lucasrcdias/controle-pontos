@@ -1,0 +1,48 @@
+.row
+  .col-sm-9
+    h1.page-title Funcionários
+  
+  .col-sm-3.text-right
+    = link_to fa_icon('filter', text: 'Filtrar funcionários'), "#", class: 'btn btn-default js-filter-toggle filter-toggle'
+  
+  = render partial: "dashboard/filter", locals: { url: [:dashboard, :workers], criterias: [[:user_name_cont, 'col-sm-4'], [:document_eq, 'col-sm-3'], [:code_or_internal_id_eq, 'col-sm-3']] }
+    
+.row
+  .col-sm-2
+    .box
+      .object-count
+        ' Total:
+        strong = workers.count
+  
+  .col-sm-4.col-sm-offset-6.col-md-3.col-md-offset-7
+    .box.clearfix
+      = link_to fa_icon('plus', text: "Novo funcionário"), new_dashboard_worker_path, class: "btn btn-success btn-block pull-right"
+  
+.box
+  - if workers.blank?
+    .alert.alert-info role="alert"
+      p Nenhum funcionário encontrado
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th = Worker.human_attribute_name(:code)
+          th = Worker.human_attribute_name(:name)
+          th = Worker.human_attribute_name(:kind)
+          th = Worker.human_attribute_name(:admitted_at)
+          th = Worker.human_attribute_name(:document)
+          th = Worker.human_attribute_name(:internal_id)
+          th
+      tbody
+        - workers.includes(:user).each do |w|
+          tr
+            td
+              b = w.code
+            td = w.user.name
+            td = w.kind_humanize
+            td = l w.admitted_at, format: :default_without_time
+            td = w.document
+            td = w.internal_id
+            td.text-right.table-options
+              = link_to fa_icon('trash-o'), [:dashboard, w], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
+              = link_to fa_icon('pencil'), edit_dashboard_worker_path(w), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'
