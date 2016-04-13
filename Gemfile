@@ -65,3 +65,5 @@ group :development, :test do
   gem 'pry-remote',         '~> 0.1.8'
   gem 'railroady'
 end
+
+gem 'rails_12factor', group: :production
