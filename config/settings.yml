@@ -2,7 +2,7 @@
 defaults: &defaults
   app: "Imperium"
   host: "localhost:3000"
-  company_url: "http://www.imperium.com.br"
+  company_url: "http://controle-ponto.herokuapp.com"
   smtp:
     from: 'Imperium <noreply@imperium.com.br>'
 
