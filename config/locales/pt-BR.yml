@@ -135,6 +135,10 @@ pt-BR:
         attributes:
           name:
             taken: 'Já existe um cargo com esse nome'
+      frequency:
+        attributes:
+          days:
+            taken: 'Já existe uma frequência com esses dias'
 
   number:
     currency:
