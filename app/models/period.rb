@@ -1,5 +1,7 @@
 class Period < ActiveRecord::Base
   validates :start_at, :finish_at, :interval_start, :interval_finish, presence: true
+  validates_with PeriodUniquenessValidator
+
   belongs_to :company
 
   def workload
