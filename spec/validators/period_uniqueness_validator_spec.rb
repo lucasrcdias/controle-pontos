@@ -32,6 +32,6 @@ describe PeriodUniquenessValidator do
     })
 
     expect(repeated_period).not_to be_valid
-    expect(repeated_period.errors[:base]).to include(I18n.t('activerecord.errors.messages.model_uniqueness'))
+    expect(repeated_period.errors[:base]).to include(I18n.t('activerecord.errors.models.period.base.model_uniqueness'))
   end
 end

@@ -8,6 +8,6 @@ class PeriodUniquenessValidator < ActiveModel::Validator
       company: record.company
     }).exists?
 
-    record.errors.add(:base, I18n.t('activerecord.errors.messages.model_uniqueness')) if equal_record_present
+    record.errors.add(:base, I18n.t('activerecord.errors.models.period.base.model_uniqueness')) if equal_record_present
   end
 end
