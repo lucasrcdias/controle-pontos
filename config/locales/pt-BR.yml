@@ -130,6 +130,18 @@ pt-BR:
       header:
         one: ! 'Não foi possível gravar %{model}: 1 erro'
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+    models:
+      role:
+        attributes:
+          name:
+            taken: 'Já existe um cargo com esse nome'
+      frequency:
+        attributes:
+          days:
+            taken: 'Já existe uma frequência com esses dias'
+      period:
+        base:
+          model_uniqueness: Já existe um período com esses horários
 
   number:
     currency:

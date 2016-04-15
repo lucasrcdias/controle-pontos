@@ -6,6 +6,11 @@
           = f.input :start_at, autofocus: true, wrapper_html: { class: 'col-sm-6' }
           = f.input :finish_at, wrapper_html: { class: 'col-sm-6' }
         .row
-          = f.input :interval_start, wrapper_html: { class: 'col-sm-6' }
+          = f.input :interval_start, wrapper_html:  { class: 'col-sm-6' }
           = f.input :interval_finish, wrapper_html: { class: 'col-sm-6' }
+        
+        .row
+          .col-sm-12.form-group.has-error.text-center
+            = f.error :base
+        
         = f.button :submit, class: 'btn btn-primary btn-block'
