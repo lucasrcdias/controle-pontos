@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314110512) do
+ActiveRecord::Schema.define(version: 20160415104439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160314110512) do
   end
 
   add_index "frequencies", ["company_id"], name: "index_frequencies_on_company_id", using: :btree
+  add_index "frequencies", ["days"], name: "index_frequencies_on_days", unique: true, using: :btree
 
   create_table "managers", force: :cascade do |t|
     t.integer  "user_id"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160314110512) do
   end
 
   add_index "roles", ["company_id"], name: "index_roles_on_company_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
