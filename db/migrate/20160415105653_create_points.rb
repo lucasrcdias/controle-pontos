@@ -1,7 +1,8 @@
 class CreatePoints < ActiveRecord::Migration
   def change
     create_table :points do |t|
-      t.datetime :date
+      t.date :date
+      t.time :time
       t.float  :latitude
       t.float :longitude
 

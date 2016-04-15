@@ -1,5 +1,5 @@
 class Point < ActiveRecord::Base
-  validates :latitude, :longitude, :date, presence: true
+  validates :latitude, :longitude, :date, :time, presence: true
 
   belongs_to :worker
 end
