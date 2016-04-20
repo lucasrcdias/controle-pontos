@@ -142,6 +142,9 @@ pt-BR:
       period:
         base:
           model_uniqueness: Já existe um período com esses horários
+      point:
+        base:
+          limit_reached: Você já marcou todos os pontos diários
 
   number:
     currency:

@@ -14,5 +14,7 @@ class Worker < ActiveRecord::Base
   belongs_to :company
   belongs_to :frequency
 
+  has_many :points, dependent: :destroy
+
   accepts_nested_attributes_for :user
 end

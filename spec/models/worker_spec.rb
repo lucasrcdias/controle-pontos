@@ -33,5 +33,7 @@ describe Worker do
     it { should belong_to(:period) }
     it { should belong_to(:company) }
     it { should belong_to(:frequency) }
+
+    it { should have_many(:points).dependent(:destroy) }
   end
 end

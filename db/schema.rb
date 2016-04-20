@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415104439) do
+ActiveRecord::Schema.define(version: 20160416213335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20160415104439) do
   end
 
   add_index "periods", ["company_id"], name: "index_periods_on_company_id", using: :btree
+
+  create_table "points", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "worker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "points", ["worker_id"], name: "index_points_on_worker_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -112,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160415104439) do
 
   add_foreign_key "companies", "managers"
   add_foreign_key "managers", "users"
+  add_foreign_key "points", "workers"
   add_foreign_key "workers", "companies"
   add_foreign_key "workers", "frequencies"
   add_foreign_key "workers", "periods"
