@@ -4,5 +4,5 @@ class Point < ActiveRecord::Base
 
   belongs_to :worker
 
-  scope :on_month, ->(date) { where(date: date.beginning_of_day..date.end_of_day) }
+  scope :on_month, ->(date) { where(date: date.beginning_of_month..date.end_of_month) }
 end
