@@ -29,7 +29,7 @@
           th = Worker.human_attribute_name(:code)
           th = Worker.human_attribute_name(:name)
           th = Worker.human_attribute_name(:kind)
-          th = Worker.human_attribute_name(:admitted_at)
+          th = Worker.human_attribute_name(:role)
           th = Worker.human_attribute_name(:document)
           th = Worker.human_attribute_name(:internal_id)
           th
@@ -40,7 +40,7 @@
               b = w.code
             td = w.user.name
             td = w.kind_humanize
-            td = l w.admitted_at, format: :default_without_time
+            td = w.role.name
             td = w.document
             td = w.internal_id
             td.text-right.table-options
