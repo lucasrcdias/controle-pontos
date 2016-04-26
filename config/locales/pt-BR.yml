@@ -214,6 +214,7 @@ pt-BR:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%H:%M'
       short_with_time: '%d/%m/%Y %H:%M'
+      short_without_time: '%d/%m/%Y'
     pm: ''
   ransack:
     attributes:
