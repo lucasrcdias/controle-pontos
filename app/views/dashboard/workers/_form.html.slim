@@ -27,6 +27,6 @@
                 = f.association :frequency, as: :select, collection: frequencies, prompt: 'Selecione uma frequência', wrapper_html: { class: 'col-sm-8' }
               
               .row
-                = f.input :admitted_at, as: :date, wrapper_html: { class: 'col-sm-5' }
+                = f.input :admitted_at, as: :string, wrapper_html: { class: 'col-sm-3' }, input_html: { data: { mask: 'date' }, value: admitted_at(worker) }
                 = f.association :period, as: :select, collection: periods, prompt: 'Selecione um período', wrapper_html: { class: 'col-sm-4' }
-                .col-sm-3 = f.button :submit, class: 'btn-primary btn-block btn-form'
+                .col-sm-3.col-sm-offset-2 = f.button :submit, class: 'btn-primary btn-block btn-form'
