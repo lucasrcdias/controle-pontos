@@ -1,0 +1,22 @@
+@import 'globals/base'
+
+.shortcut
+  min-height: 120px
+  position: relative
+  transition: .3s all ease
+  border: 1px solid $border-color
+  border-radius: $default-border-radius
+
+  &:hover
+    background: #f1f1f1
+    border-color: darken($border-color, 5%)
+
+.shortcut-content
+  +centered-content(absolute)
+
+.shortcut-icon,
+.shortcut-text
+  display: block
+
+.shortcut-icon
+  margin-bottom: 20px
