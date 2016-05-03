@@ -33,6 +33,9 @@ gem 'enumerate_it', '~> 1.2.8'
 gem 'responders',      '~> 2.1.0'
 gem 'decent_exposure', '~> 2.3.2'
 
+#API
+gem 'active_model_serializers', '~> 0.9.5'
+
 #CPF/CNPJ
 gem 'brcpfcnpj', '~> 3.3'
 
