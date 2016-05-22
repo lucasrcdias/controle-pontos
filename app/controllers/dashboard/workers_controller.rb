@@ -1,5 +1,5 @@
 class Dashboard::WorkersController < Dashboard::BaseController
-  expose(:q)           { Worker.ransack(params[:q]) }
+  expose(:q)           { current_user.company.workers.ransack(params[:q]) }
   expose(:roles)       { current_user.company.roles }
   expose(:workers)     { q.result.order(:admitted_at).page(params[:page]) }
   expose(:periods)     { current_user.company.periods }
