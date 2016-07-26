@@ -35,6 +35,7 @@ gem 'decent_exposure', '~> 2.3.2'
 
 #API
 gem 'active_model_serializers', '~> 0.9.5'
+gem 'rack-cors', :require => 'rack/cors'
 
 #CPF/CNPJ
 gem 'brcpfcnpj', '~> 3.3'
