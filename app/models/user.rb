@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     manager.company if has_company?
   end
 
+  def auth_token
+    JsonWebToken.encode(user_id: self.id)
+  end
+
   private
 
   def set_auth_token
