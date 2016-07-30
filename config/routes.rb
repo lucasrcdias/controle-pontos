@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     get 'sucesso', to: 'users/registrations#success', as: :success_sign_up
   end
 
+  namespace :api, defaults: { format: :json }, path: '/' do
+    namespace :v1 do
+      resource :login, only: [:create, :destroy]
+    end
+  end
+
   namespace :dashboard do
     root to: 'dashboard#index'
 

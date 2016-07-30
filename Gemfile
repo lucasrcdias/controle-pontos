@@ -34,8 +34,11 @@ gem 'responders',      '~> 2.1.0'
 gem 'decent_exposure', '~> 2.3.2'
 
 #API
-gem 'active_model_serializers', '~> 0.9.5'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors', :require => 'rack/cors'
+
+# JSON Web Token
+gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 #CPF/CNPJ
 gem 'brcpfcnpj', '~> 3.3'
