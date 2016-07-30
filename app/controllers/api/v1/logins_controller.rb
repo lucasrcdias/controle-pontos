@@ -5,7 +5,7 @@ module API
     def create
       user = User.find_by(email: login_params[:email])
 
-      if user && user.valid_password?(login_params[:password])
+      if user && user.valid_password?(login_params[:password]) && user.worker?
         render json: user, status: :created
       else
         render json: { user: { errors: "Usuário ou senha inválidos" } }, status: :unauthorized
