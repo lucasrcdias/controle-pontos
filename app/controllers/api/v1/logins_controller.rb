@@ -1,6 +1,6 @@
 module API
   class V1::LoginsController < API::ApplicationController
-    skip_before_action :authenticate, only: :create
+    skip_before_action :authenticate!, only: :create
 
     def create
       user = User.find_by(email: login_params[:email])

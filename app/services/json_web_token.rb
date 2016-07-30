@@ -4,7 +4,7 @@
 class JsonWebToken
   class << self
     def issuer
-      'iMusics'
+      'imperium'
     end
 
     def issued_at

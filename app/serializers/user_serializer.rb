@@ -1,5 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :auth_token
-
-  has_one :worker
+  attributes :id, :name, :email, :jwt_token
 end
