@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe JsonWebToken do
   describe '::issuer' do
-    it { expect(JsonWebToken.issuer).to eql('iMusics') }
+    it { expect(JsonWebToken.issuer).to eql('imperium') }
   end
 
   describe '::algorithm' do
