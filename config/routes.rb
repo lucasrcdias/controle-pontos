@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json }, path: '/' do
     namespace :v1 do
-      resource :login,  only: [:create, :destroy]
+      resource  :login,   only: [:create, :destroy]
       resources :periods, only: [:index]
-      resources :points, only: [:create]
+      resources :points,  only: [:create]
     end
   end
 
