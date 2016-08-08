@@ -13,5 +13,5 @@ test:
   <<: *defaults
 
 production:
-  host: "https://stark-peak-23998.herokuapp.com"
+  host: "stark-peak-23998.herokuapp.com"
   <<: *defaults
