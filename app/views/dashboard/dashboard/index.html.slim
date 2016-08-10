@@ -2,42 +2,42 @@ h1.page-title = current_user_greeting
 
 .box
   .row
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to [:dashboard, :roles] do
         .shortcut.text-center
           .shortcut-content
             = fa_icon('bars', class: 'shortcut-icon fa-2x')
             strong.shortcut-text Cargos
     
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to [:dashboard, :periods] do
         .shortcut.text-center
           .shortcut-content
             = fa_icon('clock-o', class: 'shortcut-icon fa-2x')
             strong.shortcut-text Períodos
     
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to [:dashboard, :frequencies] do
         .shortcut.text-center
           .shortcut-content
             = fa_icon('calendar', class: 'shortcut-icon fa-2x')
             strong.shortcut-text Frequências
     
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to [:dashboard, :workers] do
         .shortcut.text-center
           .shortcut-content
             = fa_icon('child', class: 'shortcut-icon fa-2x')
             strong.shortcut-text Funcionários
     
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to "#" do
         .shortcut.text-center
           .shortcut-content
             = fa_icon('bar-chart', class: 'shortcut-icon fa-2x')
             strong.shortcut-text Relatórios
     
-    .col-sm-2
+    .col-sm-2.dashboard-item
       = link_to "#" do
         .shortcut.text-center
           .shortcut-content
