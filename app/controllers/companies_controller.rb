@@ -15,9 +15,14 @@ class CompaniesController < ApplicationController
     respond_with company, location: dashboard_root_path
   end
 
+  def update
+    company.save
+    respond_with company, location: dashboard_root_path
+  end
+
   private
 
   def company_params
-    params.require(:company).permit(:fantasy_name, :social_reason, :cnpj)
+    params.require(:company).permit(:fantasy_name, :social_reason, :cnpj, :latitude, :longitude, :radius)
   end
 end
