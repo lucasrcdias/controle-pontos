@@ -8,13 +8,13 @@
   = render partial: "dashboard/filter", locals: { url: [:dashboard, :workers], criterias: [[:user_name_cont, 'col-sm-4'], [:document_eq, 'col-sm-3'], [:code_or_internal_id_eq, 'col-sm-3']] }
     
 .row
-  .col-sm-2
+  .col-sm-3.col-md-2
     .box
       .object-count
         ' Total:
         strong = workers.count
   
-  .col-sm-4.col-sm-offset-6.col-md-3.col-md-offset-7
+  .col-sm-4.col-sm-offset-5.col-md-3.col-md-offset-7
     .box.clearfix
       = link_to fa_icon('plus', text: "Novo funcionário"), new_dashboard_worker_path, class: "btn btn-success btn-block pull-right"
   
