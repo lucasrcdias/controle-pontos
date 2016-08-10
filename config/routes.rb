@@ -31,5 +31,5 @@ Rails.application.routes.draw do
     resources :workers
   end
 
-  resources :companies, only: [:new, :create]
+  resources :companies, except: :destroy
 end

@@ -15,6 +15,7 @@ pt-BR:
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
         code: 'Código'
+        radius: 'Distância máxima'
       user:
         name: 'Nome'
         email: 'E-mail'
