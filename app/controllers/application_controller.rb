@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    return worker_confirmation_path if resource.worker?
+    return worker_confirmation_path if resource.worker?  && resource.worker.has_password?
     return new_company_path         if resource.manager? && !resource.has_company?
 
     dashboard_root_path

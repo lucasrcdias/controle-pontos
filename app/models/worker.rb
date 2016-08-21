@@ -17,4 +17,8 @@ class Worker < ActiveRecord::Base
   has_many :points, dependent: :destroy
 
   accepts_nested_attributes_for :user
+
+  def has_password?
+    user.sign_in_count.zero? && user.reset_password_token.present?
+  end
 end
