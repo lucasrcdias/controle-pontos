@@ -31,5 +31,7 @@ Rails.application.routes.draw do
     resources :workers
   end
 
+  get "bem-vindo", to: "workers#confirmation", as: :worker_confirmation
+
   resources :companies, except: :destroy
 end
