@@ -4,6 +4,8 @@ class Frequency < ActiveRecord::Base
 
   belongs_to :company
 
+  alias_attribute :to_s, :name
+
   def to_s
     WeekDays.week_days_from_array(days)
   end

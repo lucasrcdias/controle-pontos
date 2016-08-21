@@ -26,6 +26,9 @@ gem 'devise', '~> 3.5.2'
 # Form
 gem 'simple_form', '~> 3.1.1'
 
+# Breadcrumb
+gem 'breadcrumbs_on_rails', '~> 3.0'
+
 # Enumeration
 gem 'enumerate_it', '~> 1.2.8'
 

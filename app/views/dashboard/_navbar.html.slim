@@ -11,12 +11,12 @@ header
 
       .collapse.navbar-collapse#main-navbar-wrapper
         ul.nav.navbar-nav.navbar-left
-          li = link_to fa_icon("home",       text: "Home"),         [:dashboard, :root]
-          li = link_to fa_icon("bars",       text: "Cargos"),       [:dashboard, :roles]
-          li = link_to fa_icon("clock-o",    text: "Períodos"),     [:dashboard, :periods]
-          li = link_to fa_icon("calendar",   text: "Frequências"),  [:dashboard, :frequencies]
-          li = link_to fa_icon("child",      text: "Funcionários"), [:dashboard, :workers]
-          li = link_to fa_icon("building-o", text: "Empresa"),      edit_company_path(current_user.company)
+          li = link_to fa_icon("home",       text: "Home"),          [:dashboard, :root]
+          li = link_to fa_icon("bars",       text: "Cargos"),        [:dashboard, :roles]
+          li = link_to fa_icon("clock-o",    text: "Períodos"),      [:dashboard, :periods]
+          li = link_to fa_icon("calendar",   text: "Frequências"),   [:dashboard, :frequencies]
+          li = link_to fa_icon("child",      text: "Colaboradores"), [:dashboard, :workers]
+          li = link_to fa_icon("building-o", text: "Empresa"),       edit_company_path(current_user.company)
 
         ul.nav.navbar-nav.navbar-right
           li.dropdown
