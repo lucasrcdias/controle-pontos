@@ -2,15 +2,14 @@
   .col-sm-4.col-sm-offset-4
     .box
       = simple_form_for [:dashboard, period], html: { novalidate: true } do |f|
-        .row
-          = f.input :start_at, autofocus: true, wrapper_html: { class: 'col-sm-6' }
-          = f.input :finish_at, wrapper_html: { class: 'col-sm-6' }
-        .row
-          = f.input :interval_start, wrapper_html:  { class: 'col-sm-6' }
-          = f.input :interval_finish, wrapper_html: { class: 'col-sm-6' }
+        = f.input :start_at,        as: :time, default: Time.parse("08:00"), autofocus: true
+        = f.input :finish_at,       as: :time, default: Time.parse("18:00")
+        = f.input :interval_start,  as: :time, default: Time.parse("12:30")
+        = f.input :interval_finish, as: :time, default: Time.parse("13:30")
         
         .row
           .col-sm-12.form-group.has-error.text-center
             = f.error :base
         
-        = f.button :submit, class: 'btn btn-primary btn-block'
+        .row
+          .col-sm-12 = f.button :submit, class: 'btn btn-primary pull-right'

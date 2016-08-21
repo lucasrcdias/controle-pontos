@@ -8,14 +8,13 @@ pt-BR:
       role: 'Cargo'
       period: 'Período'
       frequency: 'Frequência'
-
     attributes:
       company:
         fantasy_name: 'Nome fantasia'
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
         code: 'Código'
-        radius: 'Distância máxima'
+        radius: 'Distância máxima (Metros)'
       user:
         name: 'Nome'
         email: 'E-mail'
