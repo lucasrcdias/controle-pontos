@@ -1,0 +1,15 @@
+.form
+  = simple_form_for company, html: { class: "company-form" } do |f|
+    
+    = f.input :fantasy_name,  placeholder: "Ex: Variedade Supermercados", autofocus: true
+    = f.input :social_reason, placeholder: "Ex: Variedade Alimentos LTDA"
+    = f.input :cnpj,      as: :string, hint: "Digite somente números", input_html: { data: { mask: 'cnpj' } }
+    = f.input :latitude,  as: :string, hint: "Digite somente números"
+    = f.input :longitude, as: :string, hint: "Digite somente números"
+    = f.input :radius,    as: :string, hint: "Digite somente números"
+  
+    .form-footer
+      - if company.persisted?
+        .form-footer-text.form-footer-link = link_to "Voltar", :back
+      
+      = f.button :submit

@@ -38,8 +38,8 @@ h1.page-title = current_user_greeting
             strong.shortcut-text Relatórios
     
     .col-sm-2.dashboard-item
-      = link_to "#" do
+      = link_to edit_company_path(current_user.company) do
         .shortcut.text-center
           .shortcut-content
-            = fa_icon('cog', class: 'shortcut-icon fa-2x')
-            strong.shortcut-text Configurações
+            = fa_icon('building-o', class: 'shortcut-icon fa-2x')
+            strong.shortcut-text Empresa
