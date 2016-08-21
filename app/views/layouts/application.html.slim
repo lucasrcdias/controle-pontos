@@ -14,7 +14,13 @@ html lang=I18n.locale
     = csrf_meta_tags
 
   body.application data-route=dispatcher_route
+    header.application-header
+      = link_to root_path, class: "application-link" do
+        = image_tag "imperium-logo.png", alt: "Imperium - Controle de pontos descomplicado - Logo", class: "application-logo"
+        h1.application-name = Settings.app
+
     main
       .container
         = yield
+
     = javascript_include_tag "application"
