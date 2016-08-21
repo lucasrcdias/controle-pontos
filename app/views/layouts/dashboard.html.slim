@@ -16,7 +16,11 @@ html lang=I18n.locale
     = render "dashboard/navbar"
     
     .container
+      - if render_breadcrumbs.present?
+          ol.breadcrumb= render_breadcrumbs separator: '', tag: :li
+
       = render "shared/flash_messages"
+
       main.dashboard
         = yield
     

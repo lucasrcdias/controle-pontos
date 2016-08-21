@@ -5,6 +5,11 @@ class Dashboard::WorkersController < Dashboard::BaseController
   expose(:periods)     { current_user.company.periods }
   expose(:frequencies) { current_user.company.frequencies }
   expose(:worker, attributes: :worker_params)
+  expose(:user)        { worker.user }
+
+  add_breadcrumb I18n.t("titles.dashboard.workers.index"), :dashboard_workers_path
+  add_breadcrumb :user, -> c {}, only: :edit
+  add_breadcrumb I18n.t("titles.dashboard.workers.new"), -> c {}, only: :new
 
   def new
     worker.user = User.new

@@ -5,3 +5,17 @@ pt-BR:
       password: 'Redefinir senha'
       unlock: 'Instruções de desbloqueio'
       update: 'Meus dados'
+    dashboard:
+      index: "Dashboard"
+      frequencies:
+        index: "Frequências"
+        new: "Nova frequência"
+      periods:
+        index: "Períodos"
+        new: "Novo período"
+      roles:
+        index: "Cargos"
+        new: "Novo cargo"
+      workers:
+        index: "Colaboradores"
+        new: "Novo colaborador"

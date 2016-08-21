@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_one :manager, dependent: :destroy
   has_one :worker, inverse_of: :user, dependent: :destroy
 
+  alias_attribute :to_s, :name
+
   def manager?
     manager.present?
   end

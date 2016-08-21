@@ -4,7 +4,7 @@ pt-BR:
       company: 'Empresa'
       user: 'Usuário'
       manager: 'Administrador'
-      worker: 'Funcionário'
+      worker: 'Colaborador'
       role: 'Cargo'
       period: 'Período'
       frequency: 'Frequência'
