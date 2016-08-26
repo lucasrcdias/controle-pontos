@@ -44,5 +44,6 @@
             td = w.document
             td = w.internal_id
             td.text-right.table-options
+              = link_to fa_icon('eye'), [:dashboard, w], title: "Relatório", class: 'btn btn-info btn-sm'
               = link_to fa_icon('trash-o'), [:dashboard, w], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
               = link_to fa_icon('pencil'), edit_dashboard_worker_path(w), title: t('helpers.links.destroy'), class: 'btn btn-info btn-sm'

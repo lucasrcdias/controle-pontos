@@ -1,0 +1,35 @@
+strong Razão Social: 
+= worker.company.social_reason
+
+br
+strong CNPJ: 
+= worker.company.cnpj
+
+br
+strong Cargo: 
+= worker.role.name
+
+br
+strong Mês: 
+= I18n.t('date.month_names')[Date.today.month]
+
+br
+strong Ano: 
+= I18n.l(Date.today, format: "%Y")
+
+
+h3 Horário de trabalho
+
+br
+strong Entrada: 
+= I18n.l(worker.period.start_at, format: "%H:%M")
+
+br
+strong Intervalo:
+=> I18n.l(worker.period.interval_start, format: "%H:%M")
+| -
+=> I18n.l(worker.period.interval_finish, format: "%H:%M")
+
+br
+strong Saída: 
+= I18n.l(worker.period.finish_at, format: "%H:%M")

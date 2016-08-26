@@ -5,4 +5,5 @@ class Point < ActiveRecord::Base
   belongs_to :worker
 
   scope :on_month, ->(date) { where(created_at: date.beginning_of_month..date.end_of_month) }
+  scope :group_by_day, -> { select(:created_at).group(:created_at) }
 end
