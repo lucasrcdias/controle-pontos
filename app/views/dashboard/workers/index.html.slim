@@ -5,7 +5,7 @@
   .col-sm-3.text-right
     = link_to fa_icon('filter', text: 'Filtrar funcionários'), "#", class: 'btn btn-default js-filter-toggle filter-toggle'
   
-  = render partial: "dashboard/filter", locals: { url: [:dashboard, :workers], criterias: [[:user_name_cont, 'col-sm-4'], [:document_eq, 'col-sm-3'], [:code_or_internal_id_eq, 'col-sm-3']] }
+  = render partial: "dashboard/filter", locals: { url: [:dashboard, :workers], criterias: [[:user_name_cont, 'col-sm-4'], [:document_eq, 'col-sm-3'], [:internal_id_eq, 'col-sm-3']] }
     
 .row
   .col-sm-3.col-md-2
@@ -26,7 +26,6 @@
     table.table
       thead
         tr
-          th = Worker.human_attribute_name(:code)
           th = Worker.human_attribute_name(:name)
           th = Worker.human_attribute_name(:kind)
           th = Worker.human_attribute_name(:role)
@@ -36,13 +35,11 @@
       tbody
         - workers.includes(:user).each do |w|
           tr
-            td
-              b = w.code
             td = w.user.name
             td = w.kind_humanize
             td = w.role.name
             td = w.document
-            td = w.internal_id
+            td = w.internal_id || "-"
             td.text-right.table-options
               = link_to fa_icon('eye'), [:dashboard, w], title: "Relatório", class: 'btn btn-info btn-sm'
               = link_to fa_icon('trash-o'), [:dashboard, w], method: :delete, data: { confirm: t('helpers.links.confirm') }, title: t('helpers.links.destroy'), class: 'btn btn-danger btn-sm'
