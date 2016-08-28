@@ -4,51 +4,54 @@
       .box.report-box
         h1.report-title Dados
 
-        .row.report-row
-          .col-sm-8
-            label.report-label = t("activerecord.attributes.company.social_reason")
-            span.report-info   = worker.company.social_reason
-          .col-sm-4
-            label.report-label = t("activerecord.attributes.company.cnpj")
-            span.report-info   = worker.company.cnpj
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.company.social_reason")
+              th = t("activerecord.attributes.company.cnpj")
+            tbody
+              tr
+                td = worker.company.social_reason
+                td = worker.company.cnpj
   
-        .row.report-row
-          .col-sm-4
-            label.report-label = t("activerecord.attributes.user.name")
-            span.report-info   = worker.user.name
-          
-          .col-sm-4
-            label.report-label = t("activerecord.attributes.worker.document")
-            span.report-info   = worker.document
-        
-          .col-sm-4
-            label.report-label = t("activerecord.attributes.worker.role")
-            span.report-info   = worker.role.name
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.user.name")
+              th = t("activerecord.attributes.worker.document")
+              th = t("activerecord.attributes.worker.role")
+            tbody
+              tr
+                td = worker.user.name
+                td = worker.document
+                td = worker.role.name
   
-        .row.report-row
-          .col-sm-6
-            label.report-label Mês
-            span.report-info   = t('date.month_names')[Date.today.month]
-          .col-sm-6
-            label.report-label Ano
-            span.report-info   = l(Date.today, format: "%Y")
+        .table-responsive
+          table.table
+            thead
+              th Mês
+              th Ano
+            tbody
+              tr
+                td = t('date.month_names')[Date.today.month]
+                td = l(Date.today, format: "%Y")
 
       .box.report-box
         h1.report-title Horário de trabalho
         
-        .row
-          .col-sm-3
-            label.report-label = t("activerecord.attributes.period.start_at")
-            span.report-info   = l(worker.period.start_at, format: "%H:%M")
-          .col-sm-3
-            label.report-label = t("activerecord.attributes.period.interval_start")
-            span.report-info   = l(worker.period.interval_start, format: "%H:%M")
-          .col-sm-3
-            label.report-label = t("activerecord.attributes.period.interval_finish")
-            span.report-info   = l(worker.period.interval_finish, format: "%H:%M")
-          .col-sm-3
-            label.report-label = t("activerecord.attributes.period.finish_at")
-            span.report-info   = l(worker.period.finish_at, format: "%H:%M")
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.period.start_at")
+              th = t("activerecord.attributes.period.interval_start")
+              th = t("activerecord.attributes.period.interval_finish")
+              th = t("activerecord.attributes.period.finish_at")
+            tbody
+              tr
+                td = l(worker.period.start_at, format: "%H:%M")
+                td = l(worker.period.interval_start, format: "%H:%M")
+                td = l(worker.period.interval_finish, format: "%H:%M")
+                td = l(worker.period.finish_at, format: "%H:%M")
       
       .box.report-box
         h1.report-title Pontos marcados
@@ -77,14 +80,16 @@
       .box.report-box
         h1.report-title Resultados
         
-        .row
-          .col-sm-4
-            label.report-label Total de horas
-            span.report-info   60 Horas
-          .col-sm-4
-            label.report-label Total de horas extras
-            span.report-info   3.2 Horas
-        
+        .table-responsive
+          table.table
+            thead
+              th Total de Horas
+              th Total de Horas Extras
+            tbody
+              tr
+                td 60 Horas
+                td 3 Horas
+
       .box.report-box
         p.text-center
           'Recebi o saldo acima mencionado e reconheço a exatidão destas anotações
