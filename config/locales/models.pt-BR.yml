@@ -13,7 +13,6 @@ pt-BR:
         fantasy_name: 'Nome fantasia'
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
-        code: 'Código'
         radius: 'Distância máxima (Metros)'
       user:
         name: 'Nome'
@@ -23,7 +22,6 @@ pt-BR:
         password_confirmation: 'Confirmação de senha'
       worker:
         name: 'Nome'
-        code: 'Código'
         document: 'Documento'
         kind: 'Tipo de funcionário'
         admitted_at: 'Data de admissão'
