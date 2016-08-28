@@ -1,35 +1,96 @@
-strong Razão Social: 
-= worker.company.social_reason
+.container
+  .row
+    .col-sm-8.col-sm-offset-2
+      .box.report-box
+        h1.report-title Dados
 
-br
-strong CNPJ: 
-= worker.company.cnpj
+        .row.report-row
+          .col-sm-8
+            label.report-label = t("activerecord.attributes.company.social_reason")
+            span.report-info   = worker.company.social_reason
+          .col-sm-4
+            label.report-label = t("activerecord.attributes.company.cnpj")
+            span.report-info   = worker.company.cnpj
+  
+        .row.report-row
+          .col-sm-4
+            label.report-label = t("activerecord.attributes.user.name")
+            span.report-info   = worker.user.name
+          
+          .col-sm-4
+            label.report-label = t("activerecord.attributes.worker.document")
+            span.report-info   = worker.document
+        
+          .col-sm-4
+            label.report-label = t("activerecord.attributes.worker.role")
+            span.report-info   = worker.role.name
+  
+        .row.report-row
+          .col-sm-6
+            label.report-label Mês
+            span.report-info   = t('date.month_names')[Date.today.month]
+          .col-sm-6
+            label.report-label Ano
+            span.report-info   = l(Date.today, format: "%Y")
 
-br
-strong Cargo: 
-= worker.role.name
-
-br
-strong Mês: 
-= I18n.t('date.month_names')[Date.today.month]
-
-br
-strong Ano: 
-= I18n.l(Date.today, format: "%Y")
-
-
-h3 Horário de trabalho
-
-br
-strong Entrada: 
-= I18n.l(worker.period.start_at, format: "%H:%M")
-
-br
-strong Intervalo:
-=> I18n.l(worker.period.interval_start, format: "%H:%M")
-| -
-=> I18n.l(worker.period.interval_finish, format: "%H:%M")
-
-br
-strong Saída: 
-= I18n.l(worker.period.finish_at, format: "%H:%M")
+      .box.report-box
+        h1.report-title Horário de trabalho
+        
+        .row
+          .col-sm-3
+            label.report-label = t("activerecord.attributes.period.start_at")
+            span.report-info   = l(worker.period.start_at, format: "%H:%M")
+          .col-sm-3
+            label.report-label = t("activerecord.attributes.period.interval_start")
+            span.report-info   = l(worker.period.interval_start, format: "%H:%M")
+          .col-sm-3
+            label.report-label = t("activerecord.attributes.period.interval_finish")
+            span.report-info   = l(worker.period.interval_finish, format: "%H:%M")
+          .col-sm-3
+            label.report-label = t("activerecord.attributes.period.finish_at")
+            span.report-info   = l(worker.period.finish_at, format: "%H:%M")
+      
+      .box.report-box
+        h1.report-title Pontos marcados
+        
+        .table-responsive
+          table.table
+            thead
+              th Dia
+              th Entrada
+              th Início intervalo
+              th Fim intervalo
+              th Saída
+              th Início horas extras
+              th Fim horas extras
+            tbody
+              - 30.times do |day|
+                tr
+                  td = day + 1
+                  td 09:00
+                  td 12:02
+                  td 12:57
+                  td 18:00
+                  td -
+                  td -
+      
+      .box.report-box
+        h1.report-title Resultados
+        
+        .row
+          .col-sm-4
+            label.report-label Total de horas
+            span.report-info   60 Horas
+          .col-sm-4
+            label.report-label Total de horas extras
+            span.report-info   3.2 Horas
+        
+      .box.report-box
+        p.text-center
+          'Recebi o saldo acima mencionado e reconheço a exatidão destas anotações
+          br
+          br
+          br
+          ' ___________________________________________
+          br
+          span Assinatura do colaborador
