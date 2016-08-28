@@ -7,7 +7,6 @@ describe Company do
     it { should validate_presence_of(:cnpj) }
 
     it { should validate_uniqueness_of(:cnpj) }
-    it { should validate_uniqueness_of(:code) }
 
     describe "validate cnpj" do
       let(:company) { build(:company) }
