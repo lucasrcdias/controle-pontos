@@ -23,6 +23,10 @@ class Dashboard::WorkersController < Dashboard::BaseController
     respond_with worker, location: [:dashboard, :workers]
   end
 
+  def show
+    @points = worker.points.on_month(Date.parse(params[:date])) if params[:date].present?
+  end
+
   def update
     worker.save
 

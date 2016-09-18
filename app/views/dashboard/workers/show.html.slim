@@ -1,10 +1,16 @@
 .container
   .row
     .col-sm-8.col-sm-offset-2
-      .box.filter-box
+      .box.filter-box.clearfix
         h1.report-title Filtro
         
-        p colocar aqui os campos de filtro... quando estiver no modo impressão eles não vão aparecer
+        = form_tag dashboard_worker_filter_path(worker.id), method: :get, class: "row" do
+          .col-sm-3
+            = label_tag :date, "Data", class: "control-label"
+            = text_field_tag :date, params[:date], data: { mask: "date" }, class: "form-control"
+
+          .col-sm-offset-6.col-sm-3
+            = button_tag "Filtrar", type: "submit", class: 'btn btn-primary btn-block btn-form'
       
       .box.report-box
         h1.report-title Dados
@@ -58,29 +64,24 @@
                 td = l(worker.period.interval_finish, format: "%H:%M")
                 td = l(worker.period.finish_at, format: "%H:%M")
       
+      / Points
       .box.report-box
         h1.report-title Pontos marcados
         
-        .table-responsive
-          table.table
-            thead
-              th Dia
-              th Entrada
-              th Início intervalo
-              th Fim intervalo
-              th Saída
-              th Início horas extras
-              th Fim horas extras
-            tbody
-              - 30.times do |day|
-                tr
-                  td = day + 1
-                  td 09:00
-                  td 12:02
-                  td 12:57
-                  td 18:00
-                  td -
-                  td -
+        - if @points.present?
+          .table-responsive
+            table.table
+              thead
+                th Dia
+                th Entrada
+                th Início intervalo
+                th Fim intervalo
+                th Saída
+                th Início horas extras
+                th Fim horas extras
+              tbody
+                - @points.each do |point|
+                  td = point.id
       
       .box.report-box
         h1.report-title Resultados
@@ -104,3 +105,5 @@
           ' ___________________________________________
           br
           span Assinatura do colaborador
+
+button.btn.btn-primary.btn-print-fixed type="button" = fa_icon("print", text: "Imprimir")
