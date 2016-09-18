@@ -1,6 +1,4 @@
 class Company < ActiveRecord::Base
-  include UniqueCodeGenerator
-
   validates :social_reason, :fantasy_name, :cnpj, presence: true
   validates :cnpj, uniqueness: true
   validates :cnpj, cnpj: true

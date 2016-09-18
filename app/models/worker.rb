@@ -1,6 +1,4 @@
 class Worker < ActiveRecord::Base
-  include UniqueCodeGenerator
-
   validates :document, :admitted_at, :user, :role, :period, :company, :frequency, presence: true
   validates :document, uniqueness: true
   validates :document, cpf:  { if: :pf? }
