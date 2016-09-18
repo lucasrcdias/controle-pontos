@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
 # Duh
 gem 'rails', '4.2.5'
@@ -11,7 +11,7 @@ gem 'pg', '~> 0.18.3'
 gem 'slim',               '~> 2.0.3'
 gem 'uglifier',           '>= 1.3.0'
 gem 'sass-rails',         '~> 5.0.1'
-gem 'font-awesome-rails', '~> 4.4.0.0'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.5'
