@@ -1,5 +1,5 @@
 class PointLimitValidator < ActiveModel::Validator
-  MAX_POINTS_PER_DAY = 4
+  MAX_POINTS_PER_DAY = 6
 
   def validate(record)
     today           = record.created_at.beginning_of_day..record.created_at.end_of_day
