@@ -2,6 +2,8 @@ class PointLimitValidator < ActiveModel::Validator
   MAX_POINTS_PER_DAY = 6
 
   def validate(record)
+    return if record.created_at.blank?
+
     today           = record.created_at.beginning_of_day..record.created_at.end_of_day
     same_day_points = Point.where(created_at: today).count
 

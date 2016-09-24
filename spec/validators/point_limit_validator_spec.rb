@@ -11,24 +11,26 @@ end
 describe PointLimitValidator do
   let(:worker) { create(:pf_worker) }
   let(:points) do
-    4.times do
+    6.times do
       DummyPoint.create({
         worker: worker,
-        date: Date.today,
+        created_at: Date.today,
         latitude: FFaker::Geolocation.lat,
-        longitude: FFaker::Geolocation.lng
+        longitude: FFaker::Geolocation.lng,
+        kind: PointsKind.list.sample
       })
     end
   end
 
-  it "should not accept more than 4 point per day" do
+  it "should not accept more than 6 points per day" do
     points
 
     extra_point = DummyPoint.new({
       worker: worker,
-      date: Date.today,
+      created_at: Date.today,
       latitude: FFaker::Geolocation.lat,
-      longitude: FFaker::Geolocation.lng
+      longitude: FFaker::Geolocation.lng,
+      kind: PointsKind.list.sample
     })
 
     expect(extra_point).not_to be_valid
