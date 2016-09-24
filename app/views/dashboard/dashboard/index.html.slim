@@ -28,14 +28,7 @@ h1.page-title = current_user_greeting
         .shortcut.text-center
           .shortcut-content
             = fa_icon('child', class: 'shortcut-icon fa-2x')
-            strong.shortcut-text Funcionários
-    
-    .col-sm-2.dashboard-item
-      = link_to "#" do
-        .shortcut.text-center
-          .shortcut-content
-            = fa_icon('bar-chart', class: 'shortcut-icon fa-2x')
-            strong.shortcut-text Relatórios
+            strong.shortcut-text Colaboradores
     
     .col-sm-2.dashboard-item
       = link_to edit_company_path(current_user.company) do

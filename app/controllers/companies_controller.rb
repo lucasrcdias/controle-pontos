@@ -23,6 +23,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:fantasy_name, :social_reason, :cnpj, :latitude, :longitude, :radius)
+    params.require(:company).permit(:fantasy_name, :social_reason, :cnpj, :latitude, :longitude, :radius, :extra_hours_limit)
   end
 end
