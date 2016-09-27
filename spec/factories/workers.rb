@@ -8,7 +8,6 @@ FactoryGirl.define do
 
     admitted_at { Date.new }
     internal_id { 1 }
-    code        { 1001 }
 
     factory :pf_worker do
       kind { WorkerKind::PF }

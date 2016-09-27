@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810123743) do
+ActiveRecord::Schema.define(version: 20160923113319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(version: 20160810123743) do
     t.string   "social_reason"
     t.string   "fantasy_name"
     t.string   "cnpj"
-    t.integer  "code"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "manager_id"
     t.float    "latitude"
     t.float    "longitude"
     t.float    "radius"
+    t.time     "extra_hours_limit"
   end
 
   add_index "companies", ["manager_id"], name: "index_companies_on_manager_id", using: :btree
@@ -63,8 +63,9 @@ ActiveRecord::Schema.define(version: 20160810123743) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "worker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "kind",       default: 0
   end
 
   add_index "points", ["worker_id"], name: "index_points_on_worker_id", using: :btree
@@ -105,7 +106,6 @@ ActiveRecord::Schema.define(version: 20160810123743) do
   create_table "workers", force: :cascade do |t|
     t.integer  "internal_id"
     t.integer  "kind"
-    t.integer  "code"
     t.string   "document"
     t.datetime "admitted_at"
     t.integer  "user_id"

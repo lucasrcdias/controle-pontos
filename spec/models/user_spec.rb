@@ -55,6 +55,5 @@ describe User do
     it { expect(user.company.fantasy_name).to eql(company.fantasy_name) }
     it { expect(user.company.social_reason).to eql(company.social_reason) }
     it { expect(user.company.cnpj).to eql(company.cnpj) }
-    it { expect(user.company.code).to eql(company.code) }
   end
 end

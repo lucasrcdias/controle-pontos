@@ -28,7 +28,9 @@ Rails.application.routes.draw do
       resources :frequencies, path: 'frequencias'
     end
 
-    resources :workers
+    resources :workers do
+      get "/filter", action: "show", as: :filter
+    end
   end
 
   get "bem-vindo", to: "workers#confirmation", as: :worker_confirmation

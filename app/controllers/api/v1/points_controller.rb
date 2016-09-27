@@ -13,7 +13,7 @@ module API
     private
 
     def points_params
-      params.require(:point).permit(:latitude, :longitude)
+      params.require(:point).permit(:latitude, :longitude, :kind)
     end
   end
 end

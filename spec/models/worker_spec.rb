@@ -11,7 +11,6 @@ describe Worker do
     it { should validate_presence_of(:frequency) }
     it { should validate_presence_of(:admitted_at) }
 
-    it { should validate_uniqueness_of(:code) }
     it { should validate_uniqueness_of(:document) }
 
     context "pf worker" do

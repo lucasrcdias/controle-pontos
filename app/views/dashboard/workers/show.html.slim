@@ -1,0 +1,117 @@
+.container
+  .row
+    .col-sm-8.col-sm-offset-2
+      .box.filter-box.clearfix
+        h1.report-title Filtro
+        
+        = form_tag dashboard_worker_filter_path(worker.id), method: :get, class: "row" do
+          .col-sm-3
+            = label_tag :date, "Data", class: "control-label"
+            = text_field_tag :date, params[:date] || l(Date.today, format: :short), data: { mask: "date" }, class: "form-control"
+
+          .col-sm-offset-6.col-sm-3
+            = button_tag "Filtrar", type: "submit", class: 'btn btn-primary btn-block btn-form'
+      
+      .box.report-box
+        h1.report-title Dados
+
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.company.social_reason")
+              th = t("activerecord.attributes.company.cnpj")
+            tbody
+              tr
+                td = worker.company.social_reason
+                td = worker.company.cnpj
+  
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.user.name")
+              th = t("activerecord.attributes.worker.document")
+              th = t("activerecord.attributes.worker.role")
+            tbody
+              tr
+                td = worker.user.name
+                td = worker.document
+                td = worker.role.name
+  
+        .table-responsive
+          table.table
+            thead
+              th Mês
+              th Ano
+            tbody
+              tr
+                td = t('date.month_names')[Date.today.month]
+                td = l(Date.today, format: "%Y")
+
+      .box.report-box
+        h1.report-title Horário de trabalho
+        
+        .table-responsive
+          table.table
+            thead
+              th = t("activerecord.attributes.period.start_at")
+              th = t("activerecord.attributes.period.interval_start")
+              th = t("activerecord.attributes.period.interval_finish")
+              th = t("activerecord.attributes.period.finish_at")
+            tbody
+              tr
+                td = l(worker.period.start_at, format: "%H:%M")
+                td = l(worker.period.interval_start, format: "%H:%M")
+                td = l(worker.period.interval_finish, format: "%H:%M")
+                td = l(worker.period.finish_at, format: "%H:%M")
+      
+      / Points
+      .box.report-box
+        h1.report-title Pontos marcados
+        
+        - if @points.present?
+          .table-responsive
+            table.table
+              thead
+                th Dia
+                th Entrada
+                th Início intervalo
+                th Fim intervalo
+                th Saída
+                th Início horas extras
+                th Fim horas extras
+              tbody
+                - @points.group_by(&:day).each do |date, points|
+                  tr
+                    td = l(date.to_date, format: :short)
+
+                    td = entry_date(date)
+                    td = start_interval_date(date)
+                    td = end_interval_date(date)
+                    td = leave_date(date)
+                    td = start_extra_time_date(date)
+                    td = leave_extra_time_date(date)
+      
+      .box.report-box
+        h1.report-title Resultados
+        
+        .table-responsive
+          table.table
+            thead
+              th Total de Horas
+              th Total de Horas Extras
+            tbody
+              tr
+                td 60 Horas
+                td 3 Horas
+
+      .box.report-box
+        p.text-center
+          'Recebi o saldo acima mencionado e reconheço a exatidão destas anotações
+          br
+          br
+          br
+          ' ___________________________________________
+          br
+          span Assinatura do colaborador
+
+button.btn.btn-primary.btn-print-fixed type="button" = fa_icon("print", text: "Imprimir")

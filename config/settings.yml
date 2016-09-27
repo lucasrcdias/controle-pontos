@@ -2,7 +2,7 @@
 defaults: &defaults
   app: "Imperium"
   host: "localhost:3000"
-  company_url: "https://stark-peak-23998.herokuapp.com"
+  company_url: "https://imperium.herokuapp.com"
   smtp:
     from: 'Imperium <noreply@imperium.com.br>'
 
@@ -13,5 +13,5 @@ test:
   <<: *defaults
 
 production:
-  host: "stark-peak-23998.herokuapp.com"
+  host: "imperium.herokuapp.com"
   <<: *defaults

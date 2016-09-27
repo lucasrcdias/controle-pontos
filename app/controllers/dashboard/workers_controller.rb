@@ -7,7 +7,7 @@ class Dashboard::WorkersController < Dashboard::BaseController
   expose(:worker, attributes: :worker_params)
   expose(:user)        { worker.user }
 
-  add_breadcrumb I18n.t("titles.dashboard.workers.index"), :dashboard_workers_path
+  add_breadcrumb I18n.t("titles.dashboard.workers.index"), :dashboard_workers_path, except: :show
   add_breadcrumb :user, -> c {}, only: :edit
   add_breadcrumb I18n.t("titles.dashboard.workers.new"), -> c {}, only: :new
 
@@ -21,6 +21,12 @@ class Dashboard::WorkersController < Dashboard::BaseController
     WorkerService.new(worker).invite
 
     respond_with worker, location: [:dashboard, :workers]
+  end
+
+  def show
+    date = params[:date] ? Date.parse(params[:date]) : Date.today
+
+    @points = worker.points.on_month(date)
   end
 
   def update

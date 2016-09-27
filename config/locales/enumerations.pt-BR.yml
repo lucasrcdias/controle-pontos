@@ -11,3 +11,10 @@ pt-BR:
     worker_kind:
       pf: 'Pessoa física'
       pj: 'Pessoa jurídica'
+    points_kind:
+      entry: "chegada"
+      start_interval: "saída para intervalo"
+      end_interval: "chegada do intervalo"
+      leave: "saída"
+      start_extra_time: "início das horas extras"
+      leave_extra_time: "saída das horas extras"

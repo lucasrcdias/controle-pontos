@@ -7,6 +7,7 @@
     = f.input :latitude,  as: :string, hint: "Digite somente números"
     = f.input :longitude, as: :string, hint: "Digite somente números"
     = f.input :radius,    as: :string, hint: "Digite somente números"
+    = f.input :extra_hours_limit, as: :string, hint: "Digite somente números", input_html: { data: { mask: "time" }, value: l(company.extra_hours_limit, format: :short) }
   
     .form-footer
       - if company.persisted?
