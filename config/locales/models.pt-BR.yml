@@ -13,7 +13,7 @@ pt-BR:
         fantasy_name: 'Nome fantasia'
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
-        radius: 'Distância máxima (Metros)'
+        radius: 'Distância máxima (Km)'
       user:
         name: 'Nome'
         email: 'E-mail'
