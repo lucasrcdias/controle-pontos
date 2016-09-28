@@ -8,13 +8,22 @@ module PointsHelper
         "-"
       end
 
-      content_tag(:td, content, class: range_class(point))
+      content_tag :td do
+        concat range_icon(point)
+        concat content
+      end
     end
   end
 
-  def range_class(point)
-    "in-range" if point.present? && point.in_company_range?
+  def range_icon(point)
+    style = "point-out-of-range"
+    title = "Além da distância permitida"
 
-    "out-of-range"
+    if point.present? && point.in_company_range?
+      style = "point-in-range"
+      title = "Dentro da distância permitida"
+    end
+
+    content_tag(:span, "", class: style, data: { toggle: "tooltip", placement: "bottom" }, title: title)
   end
 end
