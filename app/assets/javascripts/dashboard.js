@@ -7,7 +7,6 @@
 //= require_tree ./modules
 //= require_tree ./dashboard/sections
 
+Module.run('App.Tooltip');
 Module.run('App.InputMask');
 Module.run('App.Filter');
-
-$("[data-toggle='tooltip']").tooltip();
