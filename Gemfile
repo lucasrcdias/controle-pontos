@@ -50,6 +50,9 @@ gem 'brcpfcnpj', '~> 3.3'
 gem 'ransack',  '~> 1.7'
 gem 'kaminari', '~> 0.16.3'
 
+#Geolocation
+gem 'geokit-rails'
+
 # Server
 gem 'puma', '~> 2.15.3'
 
