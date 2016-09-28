@@ -84,12 +84,12 @@
                   tr
                     td = l(date.to_date, format: :short)
 
-                    td = entry_date(date)
-                    td = start_interval_date(date)
-                    td = end_interval_date(date)
-                    td = leave_date(date)
-                    td = start_extra_time_date(date)
-                    td = leave_extra_time_date(date)
+                    td = entry_hour(date)
+                    td = start_interval_hour(date)
+                    td = end_interval_hour(date)
+                    td = leave_hour(date)
+                    td = start_extra_time_hour(date)
+                    td = leave_extra_time_hour(date)
       
       .box.report-box
         h1.report-title Resultados
@@ -101,8 +101,8 @@
               th Total de Horas Extras
             tbody
               tr
-                td 60 Horas
-                td 3 Horas
+                td #{worker.hours_per_month(@date)} horas
+                td #{worker.extra_time_by_month(@date)} horas
 
       .box.report-box
         p.text-center
