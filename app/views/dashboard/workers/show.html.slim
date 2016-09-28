@@ -84,12 +84,12 @@
                   tr
                     td = l(date.to_date, format: :short)
 
-                    td = entry_date(date)
-                    td = start_interval_date(date)
-                    td = end_interval_date(date)
-                    td = leave_date(date)
-                    td = start_extra_time_date(date)
-                    td = leave_extra_time_date(date)
+                    = entry_date(date)
+                    = start_interval_date(date)
+                    = end_interval_date(date)
+                    = leave_date(date)
+                    = start_extra_time_date(date)
+                    = leave_extra_time_date(date)
       
       .box.report-box
         h1.report-title Resultados
