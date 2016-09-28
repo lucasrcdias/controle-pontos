@@ -9,3 +9,5 @@
 
 Module.run('App.InputMask');
 Module.run('App.Filter');
+
+$("[data-toggle='tooltip']").tooltip();
