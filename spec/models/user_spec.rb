@@ -56,4 +56,10 @@ describe User do
     it { expect(user.company.social_reason).to eql(company.social_reason) }
     it { expect(user.company.cnpj).to eql(company.cnpj) }
   end
+
+  describe "#first_name" do
+    before { user.name = "John Doe" }
+
+    it { expect(user.first_name).to eql("John") }
+  end
 end

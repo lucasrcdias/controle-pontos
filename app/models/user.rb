@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
 
     token if self.update_attribute(:auth_token, token)
   end
+
+  def first_name
+    name.split(" ").first
+  end
 end
