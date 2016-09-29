@@ -102,8 +102,8 @@
               th Total de Horas Extras
             tbody
               tr
-                td #{worker.hours_per_month(@date)} horas
-                td #{worker.extra_time_per_month(@date)} horas
+                td = parse_worked_hours(worker.hours_per_month(@date))
+                td = parse_worked_hours(worker.extra_time_per_month(@date))
 
       .box.report-box
         p.text-center
