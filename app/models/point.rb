@@ -12,6 +12,14 @@ class Point < ActiveRecord::Base
     created_at.to_date
   end
 
+  def in_company_range?
+    company        = worker.company
+    company_coords = Geokit::LatLng.new(company.latitude, company.longitude)
+    point_coords   = Geokit::LatLng.new(latitude, longitude)
+
+    point_coords.distance_to(company_coords, units: :kms) <= company.radius
+  end
+
   class << self
     PointsKind.values.each do |value|
       define_method("#{value}_on_date") do |date|
