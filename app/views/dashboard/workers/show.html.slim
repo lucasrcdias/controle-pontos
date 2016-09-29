@@ -90,7 +90,8 @@
                     td = leave_hour(date)
                     td = start_extra_time_hour(date)
                     td = leave_extra_time_hour(date)
-      
+        - else
+          strong Nenhum ponto marcado até o momento.
       .box.report-box
         h1.report-title Resultados
         
@@ -102,7 +103,7 @@
             tbody
               tr
                 td #{worker.hours_per_month(@date)} horas
-                td #{worker.extra_time_by_month(@date)} horas
+                td #{worker.extra_time_per_month(@date)} horas
 
       .box.report-box
         p.text-center
