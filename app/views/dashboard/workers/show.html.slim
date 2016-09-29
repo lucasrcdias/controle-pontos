@@ -1,16 +1,17 @@
 .container
   .row
-    .col-sm-8.col-sm-offset-2
-      .box.filter-box.clearfix
-        h1.report-title Filtro
-        
-        = form_tag dashboard_worker_filter_path(worker.id), method: :get, class: "row" do
-          .col-sm-3
-            = label_tag :date, "Data", class: "control-label"
+    .col-sm-12.col-md-8.col-md-offset-2
+      .box.filter-box
+        .row
+          .col-sm-2.col-md-3
+            h1.report-title.filter-title Filtro
+          
+          = form_tag dashboard_worker_filter_path(worker.id), method: :get, class: "col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-2 form-inline" do
+            = label_tag :date, "Data", class: "inline-label"
             = text_field_tag :date, params[:date] || l(Date.today, format: :short), data: { mask: "date" }, class: "form-control"
 
-          .col-sm-offset-6.col-sm-3
-            = button_tag "Filtrar", type: "submit", class: 'btn btn-primary btn-block btn-form'
+          .col-sm-3
+            = button_tag "Filtrar", type: "submit", class: 'btn btn-primary btn-block'
       
       .box.report-box
         h1.report-title Dados
