@@ -32,7 +32,7 @@ class Worker < ActiveRecord::Base
 
       return if entry.nil? || leave.nil? || start_interval.nil? || end_interval.nil?
 
-      total_hours += (to_hour(start_interval.created_at - entry.created_at)) - (to_hour(start_interval.created_at - end_interval.created_at))
+      total_hours += (start_interval.created_at - entry.created_at) - (start_interval.created_at - end_interval.created_at)
     end
 
     total_hours.to_i
@@ -48,7 +48,7 @@ class Worker < ActiveRecord::Base
 
       return if start_extra_time.nil? || leave_extra_time.nil?
 
-      total_hours += to_hour(leave_extra_time.created_at - start_extra_time.created_at)
+      total_hours += leave_extra_time.created_at - start_extra_time.created_at
     end
 
     total_hours.to_i
@@ -64,9 +64,5 @@ class Worker < ActiveRecord::Base
     end
 
     point_found
-  end
-
-  def to_hour(seconds)
-    seconds / 1.hour
   end
 end
