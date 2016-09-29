@@ -14,7 +14,7 @@ class Point < ActiveRecord::Base
 
   class << self
     PointsKind.values.each do |value|
-      define_method("#{value}_by_date") do |date|
+      define_method("#{value}_on_date") do |date|
         send(value).where("extract(day from points.created_at) = ?", date.day).first
       end
     end
