@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  validates :social_reason, :fantasy_name, :cnpj, :latitude, :longitude, presence: true
+  validates :social_reason, :fantasy_name, :cnpj, :latitude, :longitude, :radius, presence: true
   validates :cnpj, uniqueness: true
   validates :cnpj, cnpj: true
 
