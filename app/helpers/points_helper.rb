@@ -1,7 +1,7 @@
 module PointsHelper
   PointsKind.values.each do |value|
-    define_method("#{value}_date") do |date|
-      point   = Point.send("#{value}_by_date", date)
+    define_method("#{value}_hour") do |date|
+      point   = Point.send("#{value}_on_date", date)
       content = if point
         l(point.created_at, format: :short)
       else

@@ -85,13 +85,15 @@
                   tr
                     td = l(date.to_date, format: :short)
 
-                    = entry_date(date)
-                    = start_interval_date(date)
-                    = end_interval_date(date)
-                    = leave_date(date)
-                    = start_extra_time_date(date)
-                    = leave_extra_time_date(date)
-      
+                    = entry_hour(date)
+                    = start_interval_hour(date)
+                    = end_interval_hour(date)
+                    = leave_hour(date)
+                    = start_extra_time_hour(date)
+                    = leave_extra_time_hour(date)
+        - else
+          strong Nenhum ponto marcado até o momento.
+
       .box.report-box
         h1.report-title Resultados
         
@@ -102,8 +104,8 @@
               th Total de Horas Extras
             tbody
               tr
-                td 60 Horas
-                td 3 Horas
+                td = parse_worked_hours(worker.hours_per_month(@date))
+                td = parse_worked_hours(worker.extra_time_per_month(@date))
 
       .box.report-box
         p.text-center
@@ -115,4 +117,4 @@
           br
           span Assinatura do colaborador
 
-button.btn.btn-primary.btn-print-fixed type="button" = fa_icon("print", text: "Imprimir")
+button.btn.btn-primary.btn-print-fixed type="button" onclick="window.print();" = fa_icon("print", text: "Imprimir")

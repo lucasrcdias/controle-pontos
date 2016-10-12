@@ -14,6 +14,7 @@ pt-BR:
         social_reason: 'Razão Social'
         cnpj: 'CNPJ'
         radius: 'Distância máxima (Km)'
+        extra_hours_limit: 'Limite de horas extra'
       user:
         name: 'Nome'
         email: 'E-mail'

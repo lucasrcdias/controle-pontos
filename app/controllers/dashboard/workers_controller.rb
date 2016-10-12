@@ -24,9 +24,9 @@ class Dashboard::WorkersController < Dashboard::BaseController
   end
 
   def show
-    date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
-    @points = worker.points.on_month(date)
+    @points = worker.points.on_month(@date)
   end
 
   def update
