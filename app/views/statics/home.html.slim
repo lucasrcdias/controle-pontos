@@ -1,6 +1,25 @@
-nav.nav role="navigation"
-  = link_to "Login", new_user_session_path
-  br
-  = link_to "Cadastre-se", new_user_registration_path
+header.home__header role="header"
+  nav.home__nav role="nav"
+    .container
+      .home__container
+        .home__logo
+          = image_tag "imperium-logo-white.png", alt: "Logo Imperium - Versão branca", class: "home__logo-img"
+          h1.home__logo-text Imperium
 
-h1 Controle de pontos
+        = link_to "Acesse sua conta", new_user_session_path, class: "home__link"
+  
+  .home__banner-wrapper
+    = image_tag  "imperium_home_banner.jpg", alt: "Imperium - Controle de pontos trabalhistas", class: "home__banner-img"
+  
+  .home__banner-text
+    h1.home__banner-title Preocupe-se com o que realmente importa
+    
+    p.home__banner-subtitle
+      ' Uma plataforma para controle de pontos
+      strong.home__banner-highlight' customisável
+      ' e
+      strong.home__banner-highlight lang="en-us"
+        i eco friendly
+  
+  = link_to "Crie sua conta", new_user_registration_path, class: "home__link home__link--large home__call-to-action"
+  
