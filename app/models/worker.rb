@@ -16,10 +16,6 @@ class Worker < ActiveRecord::Base
 
   accepts_nested_attributes_for :user
 
-  def has_password?
-    user.sign_in_count.zero? && user.reset_password_token.present?
-  end
-
   def hours_per_month(date)
     total_hours      = 0
     points_per_month = points.on_month(date)
