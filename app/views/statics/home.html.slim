@@ -21,5 +21,7 @@ header.home__header role="header"
       strong.home__banner-highlight lang="en-us"
         i eco friendly
   
-  = link_to "Crie sua conta", new_user_registration_path, class: "home__link home__link--large home__call-to-action"
+  .home__footer
+    = link_to "Crie sua conta", new_user_registration_path, class: "home__link home__link--large home__call-to-action"
+    = link_to "Faça o download do aplicativo", "imperium.apk", class: "home__download"
   
