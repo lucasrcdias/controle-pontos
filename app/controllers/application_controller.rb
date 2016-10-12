@@ -9,14 +9,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    return worker_confirmation_path if resource.worker?  && resource.worker.has_password?
-    return new_company_path         if resource.manager? && !resource.has_company?
+    return new_company_path if resource.manager? && !resource.has_company?
 
     dashboard_root_path
   end
 
   def authenticate_manager!
-    authenticate_user! && current_user.manager?
+    redirect_to new_user_session_path unless user_signed_in? && current_user.manager?
   end
 
   decent_configuration do
