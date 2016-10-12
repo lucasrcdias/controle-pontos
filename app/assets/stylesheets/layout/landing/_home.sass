@@ -1,0 +1,91 @@
+.home__header
+  height: 100vh
+  overflow: hidden
+  position: relative
+
+.home__nav
+  top: 0
+  left: 0
+  width: 100%
+  padding: 15px 0
+  text-align: right
+  position: absolute
+  z-index: 3
+
+.home__link
+  color: #fff
+  padding: 5px 10px
+  display: inline-block
+  border: 2px solid #fff
+  text-decoration: none
+  transition: .2s all ease
+
+  &:hover
+    color: #fff
+    background: $secondary-color
+    border-color: $secondary-color
+
+.home__link--large
+  padding: 15px 25px
+
+.home__banner-wrapper
+  position: relative
+
+  @media screen and (max-width: $screen-xs-max)
+    height: 100vh
+
+  &::after
+    content: ""
+    display: block
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    position: absolute
+    background: #000
+    opacity: 0.6
+    z-index: 1
+
+.home__banner-img
+  @media screen and (max-width: $screen-xs-max)
+    right: -115px
+    position: absolute
+
+  @media screen and (min-width: $screen-sm-min)
+    width: 100%
+    object-fit: cover
+
+.home__banner-text
+  text-align: center
+  +centered-content(absolute)
+  z-index: 2
+
+  @media screen and (max-width: $screen-xs-max)
+    width: 90%
+
+  @media screen and (min-width: $screen-sm-min)
+    max-width: 800px
+
+.home__banner-title,
+.home__banner-subtitle
+  color: #fff
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, .6)
+
+.home__banner-title
+  text-transform: uppercase
+  font-family: "Montserrat", sans-serif
+
+.home__banner-subtitle
+  font-size: 22px
+  font-weight: 100
+  font-family: "Roboto", sans-serif
+
+.home__banner-highlight
+  font-weight: 400
+
+.home__call-to-action
+  left: 50%
+  bottom: 30px
+  position: absolute
+  transform: translateX(-50%)
+  z-index: 1
