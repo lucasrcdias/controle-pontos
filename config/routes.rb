@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root to: "statics#home"
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }, path: '', path_names: {
     sign_in: 'entrar', sign_out: 'sair', password: 'senha', confirmation: 'confirmacao', unlock: 'desbloquear', sign_up: 'cadastre-se', edit: 'alterar', new: 'nova'
   }
