@@ -4,8 +4,6 @@ class Period < ActiveRecord::Base
 
   belongs_to :company
 
-  alias_attribute :to_s, :name
-
   def workload
     to_hour(finish_at - start_at) - interval_duration
   end
